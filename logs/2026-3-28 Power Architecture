@@ -1,0 +1,119 @@
+# Power Architecture Update — Config 1 → Config 4
+
+## Context
+
+Initial power architecture was implicitly aligned with Nordic Config 1 for the QFN73 Chip:
+
+- VDDH tied to USB VBUS
+- System behavior assumed USB as primary supply when present
+- Battery + charger used primarily as backup / charging path
+
+At the same time, the system includes:
+- Single-cell LiPo battery
+- Power-path charger (BQ24074)
+- Protection circuitry
+- Goal of battery-first operation with USB as optional wired interface
+
+This created a mismatch between intended system behavior and the selected reference configuration.
+
+---
+
+## Problem
+
+Config 1 assumes:
+- USB VBUS is the primary supply (VDDH = VBUS)
+- Device operates as a USB-powered system
+
+However, Hyper Wheel is intended to:
+- Operate primarily from battery
+- Use USB for charging and optional wired HID
+- Maintain consistent behavior regardless of USB presence
+
+Additionally:
+- Power-path charger already provides a regulated system rail (OUT)
+- Feeding VDDH directly from VBUS bypasses this architecture
+
+---
+
+## Observations
+
+From Nordic configuration table:
+
+- Config 4 supports:
+  - VDDH = Battery / External regulator
+  - USB enabled
+  - DC/DC converters enabled (DCDCEN0, DCDCEN1)
+
+This aligns with:
+- Battery-backed system rail
+- Internal regulation usage
+- USB as secondary interface rather than primary power source
+
+---
+
+## Decision
+
+Transition to **Config 4** power architecture.
+
+### Updated Strategy
+
+- nRF52840 VDDH is powered from:
+  - Charger system output (battery-backed rail)
+
+- USB VBUS:
+  - Routed to nRF52840 VBUS pin for USB detection and operation
+  - Not used as primary system supply
+
+- Internal regulators:
+  - DCDCEN0 = enabled
+  - DCDCEN1 = enabled
+
+- External 3.3 V LDO:
+  - Removed from primary power path
+
+---
+
+## Resulting Power Model
+
+---
+
+## Rationale
+
+- Aligns with intended battery-first system behavior
+- Avoids conflicting power domains (USB vs battery vs LDO)
+- Preserves full USB functionality
+- Enables internal DC/DC for improved efficiency
+- Simplifies power tree and reduces unnecessary losses
+
+---
+
+## Tradeoffs
+
+### Advantages
+- Cleaner architecture
+- Better battery efficiency
+- Fewer components (LDO removed)
+- Consistent system behavior across power modes
+
+### Considerations
+- Must ensure system rail remains within VDDH operating range
+- Low-voltage cutoff must prevent operation below VDDH minimum
+- Requires careful routing of USB VBUS separately from system rail
+
+---
+
+## Notes
+
+This change resolves a structural mismatch between:
+- system intent (battery-powered device)
+- and initial configuration (USB-powered reference)
+
+This is a critical architectural correction and will impact:
+- schematic organization
+- power routing
+- bring-up procedure
+
+Future work:
+- verify VDDH operating range vs charger output behavior
+- confirm USB VBUS detection wiring
+- finalize decoupling and DC/DC component placement

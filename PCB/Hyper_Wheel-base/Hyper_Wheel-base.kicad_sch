@@ -18717,7 +18717,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric"
 			(at 243.84 59.69 0)
 			(hide yes)
 			(show_name no)

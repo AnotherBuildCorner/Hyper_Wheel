@@ -527,10 +527,18 @@
         "wire_width": 6
       },
       {
+        "clearance": 0.05,
+        "name": "Antenna Special",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "tuning_profile": ""
+      },
+      {
         "clearance": 0.11,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgb(0, 194, 0)",
         "track_width": 0.2,
         "tuning_profile": "",
@@ -547,6 +555,30 @@
       {
         "netclass": "Power",
         "pattern": "/USB Vbus"
+      },
+      {
+        "netclass": "Antenna Special",
+        "pattern": "slash"
+      },
+      {
+        "netclass": "Antenna Special",
+        "pattern": "/AntGnd"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Antenna Special",
+        "pattern": "GNDREF"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Antenna Special",
+        "pattern": "/AntFeed"
       }
     ]
   },
@@ -690,7 +722,7 @@
         "uuid": "3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
       }
     ],
-    "used_designators": "C1-2,U15-17,#PWR27-28",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [

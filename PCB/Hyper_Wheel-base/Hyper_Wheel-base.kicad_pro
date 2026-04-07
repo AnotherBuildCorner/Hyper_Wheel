@@ -60,7 +60,56 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "clearance|201660000|70420000|9f15280e-fd61-4639-9498-117c378afccf|508db2d7-2ea5-4d6d-86f7-b7bd62495880",
+          ""
+        ],
+        [
+          "clearance|201660000|71000000|9f15280e-fd61-4639-9498-117c378afccf|5f2e7b1c-00d9-436e-8cad-ca9b0ebd9ff6",
+          ""
+        ],
+        [
+          "clearance|201660000|71580000|9f15280e-fd61-4639-9498-117c378afccf|e73eeddf-7c25-45b9-a5d1-be2cf902540d",
+          ""
+        ],
+        [
+          "clearance|203080000|71840000|9f15280e-fd61-4639-9498-117c378afccf|d88ab1ce-dc15-4bc6-8a23-a0e8abc22bcc",
+          ""
+        ],
+        [
+          "clearance|203340000|70420000|9f15280e-fd61-4639-9498-117c378afccf|7d62cfbc-66a1-4f73-981b-20f0d3181401",
+          ""
+        ],
+        [
+          "shorting_items|192812000|66887004|3e342d24-3d0d-477d-9ee9-e0e3bb0f0403|f58f013f-6c10-4566-a625-e9038707a3dc",
+          ""
+        ],
+        [
+          "solder_mask_bridge|192812000|66887004|3e342d24-3d0d-477d-9ee9-e0e3bb0f0403|f58f013f-6c10-4566-a625-e9038707a3dc",
+          ""
+        ],
+        [
+          "solder_mask_bridge|201660000|70420000|508db2d7-2ea5-4d6d-86f7-b7bd62495880|9f15280e-fd61-4639-9498-117c378afccf",
+          ""
+        ],
+        [
+          "solder_mask_bridge|201660000|71000000|5f2e7b1c-00d9-436e-8cad-ca9b0ebd9ff6|9f15280e-fd61-4639-9498-117c378afccf",
+          ""
+        ],
+        [
+          "solder_mask_bridge|201660000|71580000|e73eeddf-7c25-45b9-a5d1-be2cf902540d|9f15280e-fd61-4639-9498-117c378afccf",
+          ""
+        ],
+        [
+          "solder_mask_bridge|203080000|71840000|d88ab1ce-dc15-4bc6-8a23-a0e8abc22bcc|9f15280e-fd61-4639-9498-117c378afccf",
+          ""
+        ],
+        [
+          "solder_mask_bridge|203340000|70420000|7d62cfbc-66a1-4f73-981b-20f0d3181401|9f15280e-fd61-4639-9498-117c378afccf",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -527,18 +576,10 @@
         "wire_width": 6
       },
       {
-        "clearance": 0.05,
-        "name": "Antenna Special",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "tuning_profile": ""
-      },
-      {
         "clearance": 0.11,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 0,
         "schematic_color": "rgb(0, 194, 0)",
         "track_width": 0.2,
         "tuning_profile": "",
@@ -557,11 +598,11 @@
         "pattern": "/USB Vbus"
       },
       {
-        "netclass": "Antenna Special",
+        "netclass": "Default",
         "pattern": "slash"
       },
       {
-        "netclass": "Antenna Special",
+        "netclass": "Default",
         "pattern": "/AntGnd"
       },
       {
@@ -569,7 +610,7 @@
         "pattern": "GND"
       },
       {
-        "netclass": "Antenna Special",
+        "netclass": "Default",
         "pattern": "GNDREF"
       },
       {
@@ -577,8 +618,16 @@
         "pattern": "GND"
       },
       {
-        "netclass": "Antenna Special",
+        "netclass": "Default",
         "pattern": "/AntFeed"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power Handling/Cell-"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power Handling/Prot-"
       }
     ]
   },

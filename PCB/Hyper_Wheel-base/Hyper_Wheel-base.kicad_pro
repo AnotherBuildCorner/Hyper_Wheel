@@ -88,22 +88,6 @@
         [
           "solder_mask_bridge|203340000|70420000|7d62cfbc-66a1-4f73-981b-20f0d3181401|9f15280e-fd61-4639-9498-117c378afccf",
           ""
-        ],
-        [
-          "unconnected_items|88250000|58420000|F.Cu|4|68e25f5d-ae47-46cf-9cb6-bea785030714|356d6440-1e6b-48d1-af75-af1c245d2174",
-          ""
-        ],
-        [
-          "unconnected_items|97679290|53849999|F.Cu|4|07c583bc-a292-41a6-9ff2-5e535ef7af0a|85f616dd-207b-4ab3-a630-524fbd72b926",
-          ""
-        ],
-        [
-          "unconnected_items|97679290|55750001|F.Cu|4|dda9f2e7-01f8-465f-b60f-88283474948d|3966bcd4-5e62-4ec6-bda9-513e13110ec7",
-          ""
-        ],
-        [
-          "unconnected_items|99700000|59500000|F.Cu|4|356d6440-1e6b-48d1-af75-af1c245d2174|2a6559f3-e70f-488d-ab04-93524779e9cd",
-          ""
         ]
       ],
       "meta": {
@@ -767,7 +751,7 @@
         "uuid": "3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
       }
     ],
-    "used_designators": "J1,J4-6,#PWR19,#PWR22,#PWR29,P2-24",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [

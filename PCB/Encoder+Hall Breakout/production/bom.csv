@@ -1,0 +1,11 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"3.3V1, CCW1",SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm,2,Jumper_2_Open,
+"5V1, CW1",SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm,2,Jumper_2_Bridged,
+C1,0603,1,100n,
+C2,0603,1,10u,
+J1-2,PinHeader_1x06_P2.54mm_Vertical,1,Conn_01x06_Pin,
+OUT1,PinHeader_1x01_P1.00mm_Vertical,1,TestPoint,
+PGO1,TestPoint_Pad_D2.0mm,1,TestPoint,
+"R1, R2",0603,2,4.7k,
+U1,AS5600L-ASOM_AMS,1,AS5600L-ASOM,
+"U2, U3",DRV5032-DBZ0003A-MFG,2,DRV5032FCDBZR,

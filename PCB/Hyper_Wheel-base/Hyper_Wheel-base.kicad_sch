@@ -4751,7 +4751,7 @@
 		(uuid "3195d633-220c-4575-a6d6-2483daebbcbb")
 	)
 	(junction
-		(at 181.61 111.76)
+		(at 50.8 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "53fa5a06-f2d1-4940-80fc-fdfb5babe6bf")
@@ -4769,7 +4769,7 @@
 		(uuid "74c83f59-5fea-41e2-80c7-d08e6171fa07")
 	)
 	(junction
-		(at 181.61 132.08)
+		(at 50.8 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8044c8f1-93ae-4841-a5a6-f4bb8bff6019")
@@ -5028,7 +5028,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 106.68) (xy 193.04 106.68)
+			(xy 58.42 67.31) (xy 62.23 67.31)
 		)
 		(stroke
 			(width 0)
@@ -5308,7 +5308,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 127) (xy 181.61 132.08)
+			(xy 50.8 87.63) (xy 50.8 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5388,7 +5388,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 116.84) (xy 193.04 116.84)
+			(xy 58.42 77.47) (xy 62.23 77.47)
 		)
 		(stroke
 			(width 0)
@@ -5468,7 +5468,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 132.08) (xy 181.61 132.08)
+			(xy 43.18 92.71) (xy 50.8 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5498,7 +5498,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 127) (xy 195.58 127)
+			(xy 58.42 87.63) (xy 64.77 87.63)
 		)
 		(stroke
 			(width 0)
@@ -5528,7 +5528,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 111.76) (xy 181.61 111.76)
+			(xy 43.18 72.39) (xy 50.8 72.39)
 		)
 		(stroke
 			(width 0)
@@ -5598,7 +5598,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 132.08) (xy 181.61 137.16)
+			(xy 50.8 92.71) (xy 50.8 97.79)
 		)
 		(stroke
 			(width 0)
@@ -5998,7 +5998,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 137.16) (xy 194.31 137.16)
+			(xy 58.42 97.79) (xy 63.5 97.79)
 		)
 		(stroke
 			(width 0)
@@ -6028,7 +6028,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 111.76) (xy 181.61 116.84)
+			(xy 50.8 72.39) (xy 50.8 77.47)
 		)
 		(stroke
 			(width 0)
@@ -6078,7 +6078,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 106.68) (xy 181.61 111.76)
+			(xy 50.8 67.31) (xy 50.8 72.39)
 		)
 		(stroke
 			(width 0)
@@ -6909,7 +6909,7 @@
 		)
 	)
 	(image
-		(at -7.62 84.455)
+		(at -45.72 92.075)
 		(uuid "6604f087-df64-47c7-8d8b-aa2f59a28a47")
 		(data "iVBORw0KGgoAAAANSUhEUgAAA7UAAAOJCAYAAADC4QXjAAAABHNCSVQICAgIfAhkiAAAIABJREFU"
 			"eJzs3Xd4XNWd+P/3nT6jKdLMSCONerGKmyTL4F6wsamhmR8JgQC72ZBASCVlv/vbxCab7O53d5Pf"
@@ -13860,7 +13860,7 @@
 		)
 	)
 	(image
-		(at -64.135 166.37)
+		(at -40.005 166.37)
 		(uuid "893156d2-677c-454e-aa84-570336d462a0")
 		(data "iVBORw0KGgoAAAANSUhEUgAAAzIAAAMlCAYAAACo5sYOAAAABHNCSVQICAgIfAhkiAAAIABJREFU"
 			"eJzs3Xd8XPWdN/rPOdOrpNHMqFu2ZcmSu8EV3CEUm4RiDAEWHEMI90l24e7e7HPjZHezy91g8sru"
@@ -16638,7 +16638,7 @@
 		(uuid "18bfa256-fa4c-4247-946e-2261b6a1b974")
 	)
 	(label "I2C_2_SDA"
-		(at 195.58 127 0)
+		(at 64.77 87.63 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16698,7 +16698,7 @@
 		(uuid "30dcbcd9-2e46-4bc4-b4a3-96802a09c5a5")
 	)
 	(label "I2C_1_SDA"
-		(at 193.04 106.68 0)
+		(at 62.23 67.31 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16988,7 +16988,7 @@
 		(uuid "8440eb73-bda5-432b-880f-ed309dcb3ca1")
 	)
 	(label "I2C_2_SCL"
-		(at 194.31 137.16 0)
+		(at 63.5 97.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17308,7 +17308,7 @@
 		(uuid "d9a6d43a-261f-4dae-ae65-3d2b03d3e418")
 	)
 	(label "I2C_1_SCL"
-		(at 193.04 116.84 0)
+		(at 62.23 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17398,7 +17398,7 @@
 		(uuid "ed28115a-c829-497f-91cd-ae0adb80c1c7")
 	)
 	(label "Load1 V"
-		(at 173.99 111.76 180)
+		(at 43.18 72.39 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17428,7 +17428,7 @@
 		(uuid "f680a9f2-3fdf-4129-843f-9b09c3f308a9")
 	)
 	(label "Load2 V"
-		(at 173.99 132.08 180)
+		(at 43.18 92.71 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17543,7 +17543,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 185.42 106.68 90)
+		(at 54.61 67.31 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17554,7 +17554,7 @@
 		(fields_autoplaced yes)
 		(uuid "102f10d7-6c36-40c2-8af6-035031837155")
 		(property "Reference" "RS1"
-			(at 185.42 100.33 90)
+			(at 54.61 60.96 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17564,7 +17564,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 185.42 102.87 90)
+			(at 54.61 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17574,7 +17574,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 185.42 108.458 90)
+			(at 54.61 69.088 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17585,7 +17585,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 106.68 0)
+			(at 54.61 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17596,7 +17596,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 185.42 106.68 0)
+			(at 54.61 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17607,7 +17607,7 @@
 			)
 		)
 		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
-			(at 185.42 106.68 0)
+			(at 54.61 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17870,7 +17870,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 185.42 116.84 90)
+		(at 54.61 77.47 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17881,7 +17881,7 @@
 		(fields_autoplaced yes)
 		(uuid "1ad1ecd0-9d55-458a-9094-42d1296df4eb")
 		(property "Reference" "RD1"
-			(at 185.42 110.49 90)
+			(at 54.61 71.12 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17891,7 +17891,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 185.42 113.03 90)
+			(at 54.61 73.66 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17901,7 +17901,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 185.42 118.618 90)
+			(at 54.61 79.248 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17912,7 +17912,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 116.84 0)
+			(at 54.61 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17923,7 +17923,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 185.42 116.84 0)
+			(at 54.61 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17934,7 +17934,7 @@
 			)
 		)
 		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
-			(at 185.42 116.84 0)
+			(at 54.61 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18622,7 +18622,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 185.42 127 90)
+		(at 54.61 87.63 90)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -18634,7 +18634,7 @@
 		(fields_autoplaced yes)
 		(uuid "3c5dc86d-2788-45da-bd2d-ee6d14d556ec")
 		(property "Reference" "RD2"
-			(at 185.42 120.65 90)
+			(at 54.61 81.28 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18644,7 +18644,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 185.42 123.19 90)
+			(at 54.61 83.82 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18654,7 +18654,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 185.42 125.222 90)
+			(at 54.61 85.852 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18665,7 +18665,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 127 0)
+			(at 54.61 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18676,7 +18676,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 185.42 127 0)
+			(at 54.61 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18687,7 +18687,7 @@
 			)
 		)
 		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
-			(at 185.42 127 0)
+			(at 54.61 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19785,7 +19785,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 185.42 137.16 90)
+		(at 54.61 97.79 90)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -19797,7 +19797,7 @@
 		(fields_autoplaced yes)
 		(uuid "7f070f25-1636-4692-9390-8689ad081c66")
 		(property "Reference" "RS2"
-			(at 185.42 130.81 90)
+			(at 54.61 91.44 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19807,7 +19807,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 185.42 133.35 90)
+			(at 54.61 93.98 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19817,7 +19817,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 185.42 135.382 90)
+			(at 54.61 96.012 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19828,7 +19828,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 137.16 0)
+			(at 54.61 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19839,7 +19839,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 185.42 137.16 0)
+			(at 54.61 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19850,7 +19850,7 @@
 			)
 		)
 		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
-			(at 185.42 137.16 0)
+			(at 54.61 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

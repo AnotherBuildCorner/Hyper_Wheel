@@ -50,3 +50,4 @@ Revisit this decision if:
 
 ## Notes
 This is not a rejection of analysis in general. It is a rejection of building a full-board open-source simulation workflow when the tooling overhead outweighs the design value for this project.
+

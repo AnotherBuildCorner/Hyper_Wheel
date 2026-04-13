@@ -4272,6 +4272,172 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Jumper:Jumper_2_Open"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "JP"
+				(at 0 2.794 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper_2_Open"
+				(at 0 -2.286 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Jumper, 2-pole, open"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Jumper SPST"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_0_1"
+				(arc
+					(start -1.524 1.27)
+					(mid 0 1.778)
+					(end 1.524 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Switch:SW_Push"
 			(pin_numbers
 				(hide yes)
@@ -4909,6 +5075,16 @@
 			(type default)
 		)
 		(uuid "397546c0-c7e9-4716-a3ab-37e76f32f05d")
+	)
+	(wire
+		(pts
+			(xy 66.04 48.26) (xy 73.66 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3aa6f125-ceed-4b50-a2be-cd709d90ee5f")
 	)
 	(wire
 		(pts
@@ -5652,6 +5828,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 57.15) (xy 55.88 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd37d3f4-36ff-4d4a-a12d-9c4b46c985d4")
+	)
+	(wire
+		(pts
 			(xy 147.32 163.83) (xy 147.32 176.53)
 		)
 		(stroke
@@ -5822,6 +6008,16 @@
 	)
 	(wire
 		(pts
+			(xy 43.18 48.26) (xy 55.88 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e677749e-d74d-439f-8318-801003e31b32")
+	)
+	(wire
+		(pts
 			(xy 138.43 165.1) (xy 138.43 176.53)
 		)
 		(stroke
@@ -5949,6 +6145,16 @@
 			(type default)
 		)
 		(uuid "f9e16721-38be-487b-a9d0-5a9048d6614b")
+	)
+	(wire
+		(pts
+			(xy 66.04 57.15) (xy 71.12 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fea15545-915b-4f0d-a957-ac2df2c09f0f")
 	)
 	(image
 		(at 252.73 134.62)
@@ -16441,6 +16647,16 @@
 		)
 		(uuid "1ffa2283-248e-478e-8e3c-fc7cc7282763")
 	)
+	(label "I2C_2_SCL"
+		(at 44.45 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2238b6bd-9a28-44ae-a731-bd6d1e101bd5")
+	)
 	(label "Load3 V"
 		(at 132.08 173.99 90)
 		(effects
@@ -16731,6 +16947,16 @@
 		)
 		(uuid "80b96cef-d381-4034-b25a-b695099d4c60")
 	)
+	(label "I2C_1_SCL"
+		(at 71.12 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8114d1ac-d569-41a4-be5c-acbd043e86e7")
+	)
 	(label "Hall_1"
 		(at 113.03 166.37 0)
 		(effects
@@ -16861,6 +17087,16 @@
 		)
 		(uuid "9df773db-d42f-4c1c-8d1c-2cfec5a75e77")
 	)
+	(label "I2C_2_SDA"
+		(at 43.18 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9f12b669-5429-454a-a5ae-26f2ddb4df96")
+	)
 	(label "Key7"
 		(at 173.99 171.45 90)
 		(effects
@@ -16900,6 +17136,16 @@
 			(justify left bottom)
 		)
 		(uuid "a8fb85fe-f32c-4b09-940b-01f4553cdc7a")
+	)
+	(label "I2C_1_SDA"
+		(at 73.66 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa3c67ac-b509-4a39-902f-219fdd1f7b9e")
 	)
 	(label "Load1 V"
 		(at 17.78 170.18 90)
@@ -18637,6 +18883,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 60.96 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "483fabd1-9c91-485c-a117-6e3bba71b81f")
+		(property "Reference" "JP1"
+			(at 60.96 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 60.96 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm"
+			(at 60.96 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 60.96 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "4e1101f9-3120-4fa5-b046-c0b690bbc0c1")
+		)
+		(pin "1"
+			(uuid "40ec8316-a0c2-4af1-84d9-36acc5088494")
+		)
+		(instances
+			(project "Hyper_Wheel-base"
+				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 139.7 20.32 0)
 		(unit 1)
@@ -19123,6 +19449,86 @@
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
 					(reference "RUSB1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 60.96 57.15 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "70b60559-c09b-494e-abf3-9bb5c1d37a3c")
+		(property "Reference" "JP2"
+			(at 60.96 50.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 60.96 53.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm"
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f7e7f0f6-190e-4711-bad9-9e0ab96e5804")
+		)
+		(pin "1"
+			(uuid "da62ea87-08af-4213-a8e3-c60b7bb1f5ae")
+		)
+		(instances
+			(project "Hyper_Wheel-base"
+				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
+					(reference "JP2")
 					(unit 1)
 				)
 			)

@@ -4689,7 +4689,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2b2cc381-628f-4175-b344-d0f6864f5085")
-		(property "Reference" "P19"
+		(property "Reference" "Cell+"
 			(at 257.175 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4748,7 +4748,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/eea2fe20-ac09-4eb8-b37b-43abdbf8377a"
-					(reference "P19")
+					(reference "Cell+")
 					(unit 1)
 				)
 			)

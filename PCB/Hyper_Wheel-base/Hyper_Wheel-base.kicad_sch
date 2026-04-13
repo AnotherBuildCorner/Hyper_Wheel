@@ -17553,7 +17553,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "102f10d7-6c36-40c2-8af6-035031837155")
-		(property "Reference" "R_I2c_1"
+		(property "Reference" "RS1"
 			(at 185.42 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17626,7 +17626,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "R_I2c_1")
+					(reference "RS1")
 					(unit 1)
 				)
 			)
@@ -17880,7 +17880,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1ad1ecd0-9d55-458a-9094-42d1296df4eb")
-		(property "Reference" "R_I2c_2"
+		(property "Reference" "RD1"
 			(at 185.42 110.49 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17953,7 +17953,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "R_I2c_2")
+					(reference "RD1")
 					(unit 1)
 				)
 			)
@@ -17971,7 +17971,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1af62e75-7484-4d00-a575-d3dcb2854d98")
-		(property "Reference" "P3"
+		(property "Reference" "SCL2"
 			(at 66.675 25.4 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18030,7 +18030,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P3")
+					(reference "SCL2")
 					(unit 1)
 				)
 			)
@@ -18047,7 +18047,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2078a678-75b4-4462-b259-658c50c71bf9")
-		(property "Reference" "P4"
+		(property "Reference" "SDA2"
 			(at 65.405 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18106,7 +18106,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P4")
+					(reference "SDA2")
 					(unit 1)
 				)
 			)
@@ -18478,7 +18478,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2743c6be-5ee6-4b2b-abc3-b4b125bdacdf")
-		(property "Reference" "P6"
+		(property "Reference" "CT1"
 			(at 108.585 20.32 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18537,7 +18537,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P6")
+					(reference "CT1")
 					(unit 1)
 				)
 			)
@@ -18555,7 +18555,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3306ba47-27a0-4db1-8361-4cea7d20b796")
-		(property "Reference" "P5"
+		(property "Reference" "Load1"
 			(at 108.585 15.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18614,7 +18614,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P5")
+					(reference "Load1")
 					(unit 1)
 				)
 			)
@@ -18633,7 +18633,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c5dc86d-2788-45da-bd2d-ee6d14d556ec")
-		(property "Reference" "R_I2c_3"
+		(property "Reference" "RD2"
 			(at 185.42 120.65 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18706,7 +18706,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "R_I2c_3")
+					(reference "RD2")
 					(unit 1)
 				)
 			)
@@ -18974,7 +18974,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4bf674e9-383b-46cc-a163-d15fba333901")
-		(property "Reference" "P9"
+		(property "Reference" "CM"
 			(at 140.335 15.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19033,7 +19033,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P9")
+					(reference "CM")
 					(unit 1)
 				)
 			)
@@ -19051,7 +19051,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "517e98ef-556d-4aec-83ce-9f9f827729b8")
-		(property "Reference" "P8"
+		(property "Reference" "CT2"
 			(at 107.315 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19110,7 +19110,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P8")
+					(reference "CT2")
 					(unit 1)
 				)
 			)
@@ -19221,7 +19221,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5454957a-0aea-46b7-85f2-37e608d27a2f")
-		(property "Reference" "P11"
+		(property "Reference" "3.3V"
 			(at 140.335 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19280,7 +19280,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P11")
+					(reference "3.3V")
 					(unit 1)
 				)
 			)
@@ -19298,7 +19298,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "58d8480f-314d-47a6-9157-236ee0b855af")
-		(property "Reference" "P7"
+		(property "Reference" "Load2"
 			(at 107.315 25.4 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19357,7 +19357,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P7")
+					(reference "Load2")
 					(unit 1)
 				)
 			)
@@ -19796,7 +19796,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7f070f25-1636-4692-9390-8689ad081c66")
-		(property "Reference" "R_I2c_4"
+		(property "Reference" "RS2"
 			(at 185.42 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19869,7 +19869,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "R_I2c_4")
+					(reference "RS2")
 					(unit 1)
 				)
 			)
@@ -20091,7 +20091,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "915ed6ed-483b-4dc7-9165-0d5c6239d01f")
-		(property "Reference" "P16"
+		(property "Reference" "G"
 			(at 177.165 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20150,7 +20150,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P16")
+					(reference "G")
 					(unit 1)
 				)
 			)
@@ -20434,7 +20434,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba76e9fa-a90e-439d-a9bf-a96cf9d6429a")
-		(property "Reference" "P12"
+		(property "Reference" "VB"
 			(at 140.335 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20493,7 +20493,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P12")
+					(reference "VB")
 					(unit 1)
 				)
 			)
@@ -20510,7 +20510,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bcbae469-26ab-4664-a948-1c72925e2a45")
-		(property "Reference" "P23"
+		(property "Reference" "Sp1"
 			(at 193.802 16.764 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20569,7 +20569,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P23")
+					(reference "Sp1")
 					(unit 1)
 				)
 			)
@@ -20586,7 +20586,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c2d2299f-9332-4699-a05b-672b9606e706")
-		(property "Reference" "P24"
+		(property "Reference" "Sp2"
 			(at 193.802 19.304 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20645,7 +20645,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P24")
+					(reference "Sp2")
 					(unit 1)
 				)
 			)
@@ -20663,7 +20663,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c4ef6dde-ca94-4c9d-a80c-53af99702dc7")
-		(property "Reference" "P1"
+		(property "Reference" "SDA1"
 			(at 67.945 13.97 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20722,7 +20722,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P1")
+					(reference "SDA1")
 					(unit 1)
 				)
 			)
@@ -20740,7 +20740,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cefe09d0-7a26-40d1-a24b-09703185fde8")
-		(property "Reference" "P2"
+		(property "Reference" "SCL1"
 			(at 67.945 19.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20799,7 +20799,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P2")
+					(reference "SCL1")
 					(unit 1)
 				)
 			)
@@ -20817,7 +20817,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cf83b402-db72-4f68-8400-a947d566026b")
-		(property "Reference" "P10"
+		(property "Reference" "Hall"
 			(at 140.335 21.59 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20876,7 +20876,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "P10")
+					(reference "Hall")
 					(unit 1)
 				)
 			)

@@ -3426,16 +3426,6 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 71.12) (xy 245.11 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5885547e-6118-45ff-9cb4-4bcd4d020375")
-	)
-	(wire
-		(pts
 			(xy 101.6 72.39) (xy 109.22 72.39)
 		)
 		(stroke
@@ -3573,16 +3563,6 @@
 			(type default)
 		)
 		(uuid "768422d3-0ce4-4d34-a4d5-8ec5460f1295")
-	)
-	(wire
-		(pts
-			(xy 240.03 71.12) (xy 245.11 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "799eb794-3ef3-49b1-92db-f550f1979ad3")
 	)
 	(wire
 		(pts
@@ -4165,16 +4145,6 @@
 		(uuid "d347b27f-1e56-477c-8f1a-7526f5136bf6")
 	)
 	(label "Prot-"
-		(at 245.11 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "feacd81f-3126-4e7e-9f2e-0667cdd22e7c")
-	)
-	(label "Prot-"
 		(at 270.51 110.49 0)
 		(effects
 			(font
@@ -4511,6 +4481,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 123.19 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a8037367-b46f-4a83-86a3-538e5d9bc57a")
 		)
@@ -4593,6 +4574,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 104.14 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5a77161b-f201-4277-b960-58224d03bd18")
 		)
@@ -4614,7 +4606,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4640,7 +4632,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 222.25 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4662,7 +4654,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
+		(property "Description" ""
 			(at 222.25 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4687,88 +4679,11 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
-		(at 234.95 71.12 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "213b2ced-f3ee-478b-9da9-4be458895429")
-		(property "Reference" "P20"
-			(at 235.585 66.04 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TestPad"
-			(at 235.585 68.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
-			(at 234.95 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 234.95 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 234.95 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cd373c32-dc77-4b02-a42b-f08190d1a9e8")
-		)
-		(instances
-			(project "Hyper_Wheel-base"
-				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/eea2fe20-ac09-4eb8-b37b-43abdbf8377a"
-					(reference "P20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x01_Pin")
 		(at 256.54 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4794,7 +4709,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 256.54 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -4816,7 +4731,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
+		(property "Description" ""
 			(at 256.54 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5006,6 +4921,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "connector/JST"
+			(at 265.43 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b2c389de-d992-4e90-8eff-6d8276e0f47f")
 		)
@@ -5078,6 +5004,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 40.64 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 40.64 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -5324,6 +5261,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 59.69 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d64b47f9-ed7a-44d6-b9f7-d22727437d2a")
 		)
@@ -5394,6 +5342,17 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 52.07 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 52.07 168.91 0)
 			(hide yes)
 			(show_name no)
@@ -5564,6 +5523,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 193.04 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cec7145d-8f73-4f34-a188-b46f3ad181cc")
 		)
@@ -5722,6 +5692,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 240.03 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "455a09c8-eaa9-4724-a05f-24abc4553df9")
 		)
@@ -5804,6 +5785,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 158.75 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "bacdc47b-889c-480f-9d92-458b08b71cbe")
 		)
@@ -5874,6 +5866,17 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 106.68 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 106.68 171.45 0)
 			(hide yes)
 			(show_name no)
@@ -6226,6 +6229,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 193.04 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8fff1385-75bb-428a-9102-29491b5a7b58")
 		)
@@ -6482,6 +6496,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 158.75 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "46970e0b-e76c-4780-8f2a-1abe21dda821")
 		)
@@ -6669,7 +6694,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -6695,7 +6720,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 208.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6717,7 +6742,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
+		(property "Description" ""
 			(at 208.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6806,6 +6831,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 111.76 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 111.76 148.59 0)
 			(hide yes)
 			(show_name no)

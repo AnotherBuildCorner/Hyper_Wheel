@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Hyper_Wheel") (type "KiCad") (uri "${KIPRJMOD}/Libraries/Hyper_Wheel.pretty") (options "") (descr ""))
+)

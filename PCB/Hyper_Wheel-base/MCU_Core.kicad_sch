@@ -17251,6 +17251,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 124.46 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "404a2a47-2090-4d29-beb2-c1f3751b7db5")
 		)
@@ -17323,6 +17334,17 @@
 			)
 		)
 		(property "Description" "Chip inductor, IDC, min = 50 mA, ±20%"
+			(at 135.89 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 135.89 20.32 0)
 			(hide yes)
 			(show_name no)
@@ -17482,6 +17504,17 @@
 			)
 		)
 		(property "Description" "X7R 10%"
+			(at 104.14 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 104.14 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -17928,6 +17961,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 161.29 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c78d9a92-3bb1-4f11-b759-b4e57f6d5573")
 		)
@@ -18077,6 +18121,17 @@
 			)
 		)
 		(property "Description" "X7R 10%"
+			(at 210.82 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 210.82 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -18246,6 +18301,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 109.22 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "3bdbdf5f-d070-4ffd-ac5b-cfada29da38d")
 		)
@@ -18326,6 +18392,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 193.04 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "fce75bf7-7d3e-4117-92f3-74ec14e04806")
 		)
@@ -18396,6 +18473,17 @@
 			)
 		)
 		(property "Description" "NP0 5%"
+			(at 116.84 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 116.84 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -18488,6 +18576,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 177.8 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "30380ae4-6f2f-4896-9f57-87477a32ae06")
 		)
@@ -18558,6 +18657,17 @@
 			)
 		)
 		(property "Description" "NP0 2%"
+			(at 134.62 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 134.62 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -18804,6 +18914,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 205.74 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6485efc9-30de-49b0-a90d-13a294a93af5")
 		)
@@ -18876,6 +18997,17 @@
 			)
 		)
 		(property "Description" "NP0 5%"
+			(at 172.72 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 172.72 20.32 0)
 			(hide yes)
 			(show_name no)
@@ -18966,6 +19098,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 109.22 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "45e24d9c-e8cc-4b40-8a65-2fe1aaccc2d2")
 		)
@@ -19046,6 +19189,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 134.62 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "1a6c183c-828e-4727-850a-28c3cd4a12c5")
 		)
@@ -19116,6 +19270,17 @@
 			)
 		)
 		(property "Description" "X7R 10%"
+			(at 207.01 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 207.01 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -19208,6 +19373,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "crystal_resonator_oscillator"
+			(at 129.54 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "16509fc0-3c79-479c-80e6-a4cbf54243fe")
 		)
@@ -19284,6 +19460,17 @@
 			)
 		)
 		(property "Description" "NP0 2%"
+			(at 83.82 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 83.82 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -19397,7 +19584,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -19422,7 +19609,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 80.01 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -19444,7 +19631,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
+		(property "Description" ""
 			(at 80.01 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -19690,6 +19877,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 83.82 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "78d2404a-99cd-406e-84ff-f6fbfa37e09e")
 		)
@@ -19762,6 +19960,17 @@
 			)
 		)
 		(property "Description" "High frequency chip inductor ±10%"
+			(at 135.89 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 135.89 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -19852,6 +20061,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 189.23 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "07cf9e2d-eed5-45b8-8ba3-bf73f5085512")
 		)
@@ -19922,6 +20142,17 @@
 			)
 		)
 		(property "Description" "X7R 10%"
+			(at 201.93 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 201.93 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -20014,6 +20245,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 200.66 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a11ca0b9-97b3-43ab-9c1e-7790b8b48043")
 		)
@@ -20084,6 +20326,17 @@
 			)
 		)
 		(property "Description" "NP0 5%"
+			(at 96.52 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 96.52 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -20176,6 +20429,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 148.59 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "11a621b7-5ead-4f40-af9a-6edd59b5c6b3")
 		)
@@ -20246,6 +20510,17 @@
 			)
 		)
 		(property "Description" "X7R 10%"
+			(at 195.58 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 195.58 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -20338,6 +20613,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 212.09 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "4db03892-ad87-4c36-a40e-1582d7261a58")
 		)
@@ -20359,7 +20645,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -20385,7 +20671,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 80.01 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -20407,7 +20693,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
+		(property "Description" ""
 			(at 80.01 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -20485,6 +20771,17 @@
 			)
 		)
 		(property "Description" "X7S 10%"
+			(at 193.04 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 193.04 82.55 0)
 			(hide yes)
 			(show_name no)

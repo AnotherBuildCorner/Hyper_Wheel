@@ -4140,6 +4140,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "connector/pin_header_socket"
+			(at 101.6 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "2b91963c-24f1-482c-a9bf-b0ce341efc38")
 		)
@@ -4692,7 +4703,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d26f2055-6df4-4f22-a1aa-575e841241bf")
-		(property "Reference" "CH1,CH2,CH3"
+		(property "Reference" "CH1"
 			(at 220.98 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4754,7 +4765,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/27e14a4a-7907-4947-a1bd-66ab05fca5b6"
-					(reference "CH1,CH2,CH3")
+					(reference "CH1")
 					(unit 1)
 				)
 			)
@@ -5218,6 +5229,17 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 138.43 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "connector/pin_header_socket"
 			(at 138.43 62.23 0)
 			(hide yes)
 			(show_name no)

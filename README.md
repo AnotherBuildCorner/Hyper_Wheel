@@ -123,7 +123,7 @@ The following images highlight key aspects of the PCB design, including routing 
 ---
 
 ### Power Distribution Layer || Metal 4
-![Power Plane](./images/Metal%204.png)
+![Power Plane](./Images/Metal%204.png)
 
 > Multi-zone power distribution separating 3.3V, Load domains, and ground to reduce coupling and improve system stability.
 
@@ -132,21 +132,21 @@ The following images highlight key aspects of the PCB design, including routing 
 ##  Layer Stack & Power Distribution
 
 ### Full Ground Plane || Metal 3
-![Full Ground](./images/Metal%203.png)
+![Full Ground](./Images/Metal%203.png)
 
 > Continuous ground plane providing low-impedance return paths across the board and supporting RF performance.
 
 ---
 
 ### Full Signal Plane || Metal 2
-![Full Power](./images/Metal%202.png)
+![Full Power](./Images/Metal%202.png)
 
 > Second layer signal plane for BGA fanout.
 
 ---
 
 ### Full Top Plane || Metal 2
-![Full Top Plane](./images/Metal%201.png)
+![Full Top Plane](./Images/Metal%201.png)
 
 > Primary signal plane with all zone ground.
 

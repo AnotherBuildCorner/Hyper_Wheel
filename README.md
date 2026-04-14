@@ -93,8 +93,7 @@ BLE --> HOST
 
 The following images highlight key aspects of the PCB design, including routing strategy, RF layout considerations, and multi-layer power distribution.
 ### Early Concept Render
-![Early Render](<images/Concept Render 2.png>)
-
+![Early Render](<Images/Concept Render 2.png>)
 > *Early prototype render shown for system concept demonstration. Mechanical design is still evolving.*
 
 ---

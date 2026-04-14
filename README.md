@@ -99,7 +99,7 @@ The following images highlight key aspects of the PCB design, including routing 
 ---
 
 ### Full PCB Layout (Routing View)
-![Full PCB](<images/System%20Overview%20Zone%20Free.png>)
+![Full PCB](<Images/System%20Overview%20Zone%20Free.png>)
 
 > Overall PCB layout showing multi-layer routing strategy, peripheral distribution, and controlled RF region placement.
 
@@ -108,7 +108,7 @@ The following images highlight key aspects of the PCB design, including routing 
 ##  MCU / RF Region Detail
 
 ### Top Layer (Routing)
-![MCU Routing](<images/MCU+RF.png>)
+![MCU Routing](<Images/MCU+RF.png>)
 
 
 > nRF52840 fanout and high-density routing region, including USB interface routing and transition into a controlled antenna region.
@@ -116,7 +116,7 @@ The following images highlight key aspects of the PCB design, including routing 
 ---
 
 ### Ground Reference Layer
-![Ground Plane](./images/MCU+RF%20Zone%20Filled.png)
+![Ground Plane](./Images/MCU+RF%20Zone%20Filled.png)
 
 > Ground reference layer showing return path continuity, stitching strategy, and antenna clearance region.
 

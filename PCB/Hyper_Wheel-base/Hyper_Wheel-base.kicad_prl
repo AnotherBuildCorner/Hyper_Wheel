@@ -13,7 +13,7 @@
       "shapes": 1.0,
       "tracks": 1.0,
       "vias": 1.0,
-      "zones": 0.6600000262260437
+      "zones": 0.949999988079071
     },
     "prototype_zone_fills": false,
     "selection_filter": {
@@ -31,12 +31,10 @@
     },
     "visible_items": [
       "vias",
-      "footprint_text",
       "ratsnest",
       "grid",
       "footprints_front",
       "footprints_back",
-      "footprint_references",
       "tracks",
       "drc_errors",
       "drawing_sheet",
@@ -47,7 +45,7 @@
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "00000000_00000000_00000000_020200f5",
+    "visible_layers": "00000000_00000000_00000000_02000001",
     "zone_display_mode": 0
   },
   "git": {

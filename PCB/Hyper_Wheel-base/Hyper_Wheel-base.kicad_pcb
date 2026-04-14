@@ -113,10 +113,9 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_5755f5ff)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
+			(layerselection 0x00000000_00000000_55555555_55555555)
+			(plot_on_all_layers_selection 0x00000000_00000000_00000000_02000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
@@ -135,20 +134,20 @@
 			(dxfpolygonmode yes)
 			(dxfimperialunits yes)
 			(dxfusepcbnewfont yes)
-			(psnegative no)
+			(psnegative yes)
 			(psa4output no)
-			(plot_black_and_white yes)
-			(sketchpadsonfab no)
+			(plot_black_and_white no)
+			(sketchpadsonfab yes)
 			(plotpadnumbers no)
 			(hidednponfab no)
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 5)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 2)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "SVG's/")
 		)
 	)
 	(footprint "Hyper_Wheel:CDS85301-DQK0006B"
@@ -24894,7 +24893,7 @@
 			(uuid "dac40166-ef7f-484b-a500-5371c5013a41")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3RD_PARTY}/3dmodels/com_github_ebastler_marbastlib/HS_KS-2P02B01-02_KS33.step"
+		(model "C:/Github/Hyper_Wheel/PCB/Hyper_Wheel_XIAO/Vendor Parts/marbastlib-main/marbastlib-main/3dmodels/HS_KS-2P02B01-02_KS33.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -27867,7 +27866,7 @@
 		(uuid "c49d69a2-8f8f-4e7b-81d9-1ee107aad66d")
 	)
 	(image
-		(at 215.750001 111.25)
+		(at 121.00484 63.750001)
 		(layer "F.Cu")
 		(scale 0.254415)
 		(data "iVBORw0KGgoAAAANSUhEUgAABFQAAAO5CAYAAAA3gHGCAAAABHNCSVQICAgIfAhkiAAAIABJREFU"
@@ -29070,7 +29069,7 @@
 		(uuid "90139909-c9a0-420a-b081-207cbaef9f1b")
 	)
 	(image
-		(at 215.995161 111.25)
+		(at 121.25 63.750001)
 		(layer "F.Cu")
 		(scale 0.250091)
 		(data "iVBORw0KGgoAAAANSUhEUgAABFAAAAPBCAYAAADZGl5UAAAABHNCSVQICAgIfAhkiAAAIABJREFU"
@@ -38987,7 +38986,7 @@
 				(xy 215.965 52.811091) (xy 215.965 51.908247) (xy 215.970022 51.873314) (xy 215.977434 51.848069)
 				(xy 216.008728 51.795327) (xy 216.040132 51.763923) (xy 216.068382 51.742775) (xy 216.091474 51.730167)
 				(xy 216.150899 51.715) (xy 217.091752 51.715) (xy 217.126684 51.720021) (xy 217.151928 51.727434)
-				(xy 217.204674 51.75873) (xy 217.567732 52.121788) (xy 217.628212 52.182268) (xy 217.707234 52.215)
+				(xy 217.204674 51.75873) (xy 217.628212 52.182268) (xy 217.707234 52.215) (xy 217.792766 52.215)
 				(xy 221.861942 52.215) (xy 221.896876 52.220023) (xy 221.922116 52.227434) (xy 221.974861 52.258728)
 				(xy 221.999999 52.283865) (xy 222.000013 52.283878) (xy 222.01821 52.302075) (xy 222.104291 52.351774)
 				(xy 222.200301 52.3775) (xy 222.200304 52.3775) (xy 222.299696 52.3775) (xy 222.299699 52.3775)

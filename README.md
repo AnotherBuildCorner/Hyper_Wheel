@@ -120,6 +120,44 @@ BLE --> HOST
 
 ---
 
+## Power Profile (Preliminary)
+
+The following figures are early design estimates based on component datasheets and expected operating modes. Final values will be validated during bring-up.
+
+### Component-Level Current Estimates
+
+| Component / Mode | Estimated Current | Notes |
+|------|------:|------|
+| nRF52840, BLE active (+8 dBm) | 14.8 mA | Active BLE operating point on 3.3 V rail |
+| OLED display (each) | 12–20 mA | 0.96" Winstar OLED at 3.3 V, ~50% illumination |
+| AS5600 encoder (each, active) | 6.4 mA | Active measurement mode |
+| Keyswitches | ~0 mA | No static consumption |
+| nRF52840 system-off, RAM retained, wake on GPIOTE | 2.36 µA | MCU-only low-power state |
+
+### Estimated System Current
+
+| System Mode | Estimated Current | Notes |
+|------|------:|------|
+| Active, one OLED + one encoder + BLE | ~33.2–41.2 mA | 14.8 + 12–20 + 6.4 |
+| Active, two OLEDs + one encoder + BLE | ~45.2–61.2 mA | Current main-board target configuration |
+| Active, two OLEDs + two encoders + BLE | ~51.6–67.6 mA | Higher-end fully populated case |
+| Deep sleep / system-off | ~33 µA | Includes MCU, charger, protection IC, hall sensor, FET leakage, and battery divider |
+
+### Estimated Runtime (2000 mAh LiPo)
+
+| Mode | Estimated Runtime |
+|------|------:|
+| 45.2 mA active draw | ~44 hours |
+| 61.2 mA active draw | ~33 hours |
+| 67.6 mA active draw | ~30 hours |
+| 33 µA sleep current | ~6.9 years theoretical |
+
+Sleep-current validation will also include key-matrix wake behavior, since retained GPIO pullups can dominate standby current if not configured carefully.
+
+> Sleep-mode runtime is a first-order electrical estimate only and does not account for battery self-discharge, cell aging, converter losses, or environmental effects.
+
+> These values are estimates and will be validated during hardware bring-up.
+
 
 ##  Hardware Overview
 
@@ -299,21 +337,44 @@ This ensures the design is **practical for real-world assembly**, not just theor
 ## Current Status
 
 ### Hardware
-- PCB layout largely complete (multiple iterations)  
-- Power architecture implemented  
-- Debug/test access integrated  
+- Main PCB: Ready for fabrication (Rev A)  
+- XIAO-based validation boards: Fabricated, awaiting delivery  
+- Power architecture implemented (VDDH-based system)  
+- Multi-layer routing and RF region defined  
+- Test points and debug access integrated  
 
 ### Firmware
-- Early-stage development  
-- HID-based control structure defined  
-- Configured via PlatformIO / VSCode  
+- Early development in progress (PlatformIO)  
+- HID architecture defined (USB + BLE)  
+- Encoder and display integration in progress  
+- UI/UX layer not yet implemented  
 
-### Known Limitations / Open Questions
+### Mechanical
+- Concept prototype complete (wheel + macro pad)  
+- Final enclosure design pending  
+- Mounting and integration strategy in development  
 
-- RF performance not yet validated due to lack of VNA/scope access  
-- USB signal integrity not formally measured (routing follows best practices)  
-- Multi-device I2C stability under load not yet stress-tested  
-- Power behavior under dynamic load switching still to be characterized 
+---
+
+### Validation Status
+
+| Area | Status |
+|------|--------|
+| Power System | Not yet characterized under load |
+| RF Performance | Not validated (no RF test equipment available) |
+| USB Signal Integrity | Not measured |
+| I2C Stability | Not stress-tested |
+| Firmware Integration | In progress |
+
+---
+
+### Next Milestones
+
+1. Bring-up XIAO validation platform  
+2. Validate encoder and OLED pipeline  
+3. Verify power behavior under real load  
+4. Assemble Rev A main board  
+5. Begin enclosure integration  
 
 ---
 

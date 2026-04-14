@@ -93,14 +93,14 @@ BLE --> HOST
 
 The following images highlight key aspects of the PCB design, including routing strategy, RF layout considerations, and multi-layer power distribution.
 ### Early Concept Render
-![Early Render](./images/Concept%20Render%202.png)
+![Early Render](<images/Concept Render 2.png>)
 
 > *Early prototype render shown for system concept demonstration. Mechanical design is still evolving.*
 
 ---
 
 ### Full PCB Layout (Routing View)
-![Full PCB](./images/System%20Overview%20Zone%20Free.png)
+![Full PCB](<images/System%20Overview%20Zone%20Free.png>)
 
 > Overall PCB layout showing multi-layer routing strategy, peripheral distribution, and controlled RF region placement.
 
@@ -109,7 +109,7 @@ The following images highlight key aspects of the PCB design, including routing 
 ##  MCU / RF Region Detail
 
 ### Top Layer (Routing)
-![MCU Routing](./images/MCU+RF.png)
+![MCU Routing](<images/MCU+RF.png>)
 
 
 > nRF52840 fanout and high-density routing region, including USB interface routing and transition into a controlled antenna region.

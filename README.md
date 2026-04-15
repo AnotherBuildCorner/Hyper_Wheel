@@ -3,70 +3,93 @@
 A programmable HID control interface that replaces discrete key presses with continuous rotary input, enabling precise, context-aware interaction for workflows like video editing and CAD.
 
 **Codename:** Hyper_Wheel
----
-## Concept & Inspiration
 
-![Concept Overview](./Images/Concept%20Top%20Down.JPG)
+## Engineering Summary
 
-> Traditional macro pad (left) vs. rotary-first control interface (right)
-
-I’ve wanted a proper timeline control device for video editing for a long time. Dedicated solutions exist, but they tend to be expensive, physically large, and built for professional workflows and overkill for everyday use.
-
-The first step was building a standalone timeline wheel. It worked well as a proof of concept, but the implementation was limited. The chosen development platform (ESP32-C6) never received full wireless integration, and the device remained a single-purpose tool.
-
-To expand functionality, I added a programmable numpad. This improved flexibility, but introduced new problems:
-- No clear feedback for what each key was mapped to  
-- Increased physical footprint  
-- A disjointed user experience between discrete and continuous inputs  
-
-Most macro pads on the market suffer from similar tradeoffs—either too expensive, too cumbersome, or lacking meaningful feedback for dynamic workflows.
+- 4-layer mixed-signal embedded system (98 × 65 mm) based on nRF52840 (BLE + USB HID)
+- RF-aware PCB layout with calculated 50Ω antenna trace on TG155 FR4
+- Battery-powered architecture (LiPo + charger + protection + load switching)
+- Multi-bus I²C system separating OLED displays and encoders for signal integrity
+- Designed within JLCPCB DFM constraints (no blind vias, optimized BOM, 0402/0603 preference)
+- Staged bring-up strategy using XIAO validation platform to decouple firmware and hardware risk
 
 ---
 
-## Enter Hyper Wheel
+## What This Demonstrates
 
-Hyper Wheel is a fully integrated control surface that combines continuous rotary input with programmable keys and onboard feedback.
+This project demonstrates the ability to:
 
-Key design goals:
+- Design a mixed-signal embedded system with RF considerations  
+- Make system-level tradeoffs under real constraints (power, layout, manufacturability)  
+- Identify and mitigate risk without full simulation tooling  
+- Structure hardware bring-up and validation intentionally  
 
-- **Rotary-first interaction** using a high-resolution magnetic encoder  
-- **Tactile control** via a large-format (56 mm ID) bearing-driven wheel  
-- **Integrated feedback** through dual OLED displays  
-- **Flexible input surface** using modular KS33 mechanical switches  
-- **Wireless-first design** built around the nRF52840 (BLE + low power)  
-- **Self-contained power system** with LiPo charging and protection circuitry  
-- **Enterprise-friendly operation** using standard HID over USB and BLE (no custom drivers)
-
-The result is a compact, portable device that replaces fragmented control schemes with a single, cohesive interface.
-
-## Overview
-
-Hyper Wheel is a programmable HID macro device built around a high-resolution magnetic encoder, designed to provide precise, context-aware control for workflows like video editing, CAD, and embedded development.
-
-Unlike typical macro pads, the primary input is not a button grid but a continuous rotary interface, capable of functioning as a timeline scrubber, fine adjustment control, horizontal scroll input, or system volume control—all within standard HID keyboard and mouse outputs.
-
-The system is designed with enterprise compatibility in mind, avoiding custom drivers and relying entirely on standard USB/BLE HID communication. This constraint drives both firmware architecture and hardware design decisions.
-
-The current iteration focuses on validating a complete embedded system pipeline, including power architecture, multi-layer PCB layout with RF considerations, and scalable input/output expansion.
+This is not a proof-of-concept—it is a system designed to be built, debugged, and iterated.
 
 ---
 
-## Core Concept
+## Status
 
-Unlike traditional macro pads, Hyper Wheel combines:
-
-- **Discrete inputs (keys)**
-- **Continuous input (encoder wheel)**
-- **Context feedback (dual OLED displays)**
-
-The encoder is fully programmable and can be mapped to:
-
-- Frame-by-frame scrubbing  
-- Vertical / horizontal scrolling  
-- Volume control  
-- Any HID-compatible incremental behavior  
+- Rev A PCB complete and ready for fabrication  
+- Validation hardware in production  
+- Firmware development in progress  
 
 ---
+
+## Intended Outcome
+
+The goal of this project is to produce a fully functional, portable HID control surface that can be:
+
+- Built using standard PCB manufacturing workflows  
+- Assembled and validated without specialized RF tooling  
+- Used in real workflows without custom drivers or software dependencies  
+
+Success is defined by reliable operation, predictable behavior, and ease of integration into existing systems.
+
+---
+
+## Concept
+
+### Early Concept Render
+![Early Render](<Images/Concept Render 2.png>)
+> *Early prototype render shown for system concept demonstration. Mechanical design is still evolving.*
+
+Hyper Wheel is a rotary-first HID control surface designed to replace discrete macro inputs with continuous, context-aware control.
+
+The system combines:
+- High-resolution rotary encoder input  
+- Programmable key matrix  
+- Onboard display feedback  
+
+Primary use cases:
+- Video editing (timeline scrubbing, precision control)  
+- CAD navigation  
+- General HID-based workflows  
+
+The design prioritizes:
+- Compact form factor  
+- Driverless operation (USB/BLE HID only)  
+- Integration of continuous and discrete input into a single interface  
+---
+
+
+## System Overview
+
+Hyper Wheel is a programmable HID macro device built around a high-resolution magnetic encoder, designed to provide precise, context-aware control.
+
+Unlike typical macro pads:
+- Primary input is continuous (rotary), not discrete  
+- Output is standard HID (keyboard + mouse)  
+- Feedback is integrated via dual OLED displays  
+
+The system is designed for enterprise compatibility:
+- No custom drivers  
+- USB and BLE HID only  
+
+Current development focuses on validating:
+- Power architecture  
+- Multi-layer PCB layout with RF considerations  
+- Scalable I/O architecture  
 
 ## System Architecture
 
@@ -120,6 +143,79 @@ BLE --> HOST
 
 ---
 
+## Engineering Highlights
+
+### Single-MCU USB + BLE Architecture
+- Transitioned from QFN48 to USB-capable aQFN73 to enable USB HID while maintaining BLE
+- Preserved single-MCU architecture to reduce system complexity
+
+### Battery-First Power System
+- Implemented Nordic VDDH Config 4 architecture for battery-first operation
+- USB used for detection only; system powered from charger output
+- Enabled internal DC/DC (DCDCEN0/1), eliminating need for external regulator
+
+### RF Design Approach
+- Used reference antenna layout with controlled ground zones
+- Calculated 50Ω impedance trace for 2.4 GHz operation on TG155 FR4
+- Designed for short-range BLE use (desktop device)
+- Validation deferred to hardware bring-up
+
+### Routing Density & Layer Strategy
+- Moved key matrix to inner layer to reduce congestion
+- Improved fanout of high-density MCU region
+- Optimized via sizing for manufacturing cost
+
+### Iteration Strategy (Firmware First)
+- Developed XIAO-based validation board to decouple firmware and hardware bring-up
+- Allows testing of UI, input pipeline, and HID behavior before full PCB assembly
+
+### Constraint-Driven Design
+
+- Designed without access to RF simulation or SI toolchains, relying on first-principles reasoning and reference layouts to achieve first-pass success  
+- Applied calculated trace geometry and conservative design margins to mitigate signal integrity risk  
+- Prioritized manufacturability and iteration speed over theoretical optimization  
+- Structured design to enable validation through hardware bring-up rather than pre-simulation
+
+
+---
+
+## Key Engineering Decisions
+
+- **Single-MCU architecture (nRF52840)**  
+  Reduced system complexity while supporting both BLE and USB HID
+
+- **Battery-first power design (VDDH Config 4)**  
+  Enabled seamless USB + battery operation without conflicting domains
+
+- **Split I²C buses**  
+  Prevented address conflicts and improved signal integrity under expansion
+
+- **HID-only communication (no custom drivers)**  
+  Ensures enterprise compatibility and plug-and-play behavior
+
+- **Staged bring-up using validation hardware**  
+  Reduced risk by separating firmware development from full system assembly
+
+- **Conservative RF design without simulation tooling**  
+  Relied on reference layouts and controlled geometry with validation deferred to hardware
+---
+
+## Validation Status
+
+| Area | Status |
+|------|--------|
+| Power System | Not yet characterized under load |
+| RF Performance | Not validated (no RF test equipment available) |
+| USB Signal Integrity | Not measured |
+| I2C Stability | Not stress-tested |
+| Firmware Integration | In progress |
+
+> Validation strategy is structured to isolate failure modes early, reducing system-level debugging complexity during full integration
+
+> Firmware bring-up and subsystem testing occurring prior to full hardware integration.
+
+---
+
 ## Power Profile (Preliminary)
 
 The following figures are early design estimates based on component datasheets and expected operating modes. Final values will be validated during bring-up.
@@ -162,9 +258,7 @@ Sleep-current validation will also include key-matrix wake behavior, since retai
 ##  Hardware Overview
 
 The following images highlight key aspects of the PCB design, including routing strategy, RF layout considerations, and multi-layer power distribution.
-### Early Concept Render
-![Early Render](<Images/Concept Render 2.png>)
-> *Early prototype render shown for system concept demonstration. Mechanical design is still evolving.*
+
 
 ---
 
@@ -222,51 +316,7 @@ The following images highlight key aspects of the PCB design, including routing 
 
 ---
 
-## Engineering Highlights
 
-### Single-MCU USB + BLE Architecture
-- Transitioned from QFN48 to USB-capable aQFN73. Originally targeted QFN48 for design simplicity, anticipating low GPIO consumptiuon and no NFC requirement. USB-HID necessitated the QFN73.  
-- Preserved single-MCU design while enabling USB HID  
-
----
-
-### Battery-First Power System
-- Transitioned from Nordic Config 1 (USB-primary) to Config 4 (VDDH-first) to support battery-backed operation without conflicting power domains. 
-- VDDH sourced from charger output; USB VBUS used for detection only. 
-- Enables internal DC/DC with DCDCEN0/1, eliminating the external LDO.
-- Internal regulator chosen over external due to synergy with Nordic chipset.
-
----
-
-### RF Design Without RF Tooling
-- Used reference antenna layout and controlled ground zones
-- Calculated 50 Ohm impedance for antenna trace, based on 2.4GHz and TG155 FR4 board  
-- Deferred validation to real-world testing  
-- BLE range maximization not a concern, desktop device, not a long range sensor.
-
----
-
-### Routing Density & Layer Strategy
-- Moved key matrix routing to inner layer  
-- Improved MCU fanout and reduced congestion
-- Maximized VIA size to reduce production costs in BGA fanout  
-
----
-
-### Iteration Strategy (Firmware First)
-- Developed simplified XIAO-based validation board
-- Reduces likelyhood of assembly/design based errors enabling firmware deployment
-- Version does NOT include low power architecture such as load switches, utilizes onboard XIAO LIPO charger.
-- Solder bridges included to bypass non-critical architecture as needed.  
-- Enables rapid firmware/UI iteration independent of full hardware  
-
----
-
-### Avoiding Overengineering
-- Abandoned full FEM/PDN simulation workflow  
-- Focused on targeted analysis and proven design practices  
-
----
 ##  Dev Platform / Prototype
 
 ![XIAO Dev Board](<Images/XIAO board Zone Free.png>)
@@ -353,18 +403,6 @@ This ensures the design is **practical for real-world assembly**, not just theor
 - Concept prototype complete (wheel + macro pad)  
 - Final enclosure design pending  
 - Mounting and integration strategy in development  
-
----
-
-### Validation Status
-
-| Area | Status |
-|------|--------|
-| Power System | Not yet characterized under load |
-| RF Performance | Not validated (no RF test equipment available) |
-| USB Signal Integrity | Not measured |
-| I2C Stability | Not stress-tested |
-| Firmware Integration | In progress |
 
 ---
 

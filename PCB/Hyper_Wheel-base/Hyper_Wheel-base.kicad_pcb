@@ -32858,7 +32858,7 @@
 		)
 		(uuid "f78d2b98-f286-42b0-b7e3-6da04b6ffe86")
 	)
-	(gr_text_box "Hyper-Wheel\nFull System\nRevA\n4/26"
+	(gr_text_box "Hyper-Wheel\nFull System\nRevA 1\n4/26"
 		(start 216.625 58.572084)
 		(end 228.875 66.927916)
 		(margins 1.0025 1.0025 1.0025 1.0025)

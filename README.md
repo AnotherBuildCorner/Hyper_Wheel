@@ -311,7 +311,7 @@ The following images highlight key aspects of the PCB design, including routing 
 
 ---
 
-### Full Top Plane || Metal 2
+### Full Top Plane || Metal 1
 ![Full Top Plane](./Images/Metal%201.png)
 
 > Primary signal plane with all zone ground.

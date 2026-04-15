@@ -855,7 +855,7 @@
         "uuid": "3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
       }
     ],
-    "used_designators": "JP1-2",
+    "used_designators": "JP1-3,Hall1,Cell+1,C23-26,VB1,3.3V1,CM1,G1",
     "variants": []
   },
   "sheets": [

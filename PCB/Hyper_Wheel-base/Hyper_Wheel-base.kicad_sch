@@ -18974,7 +18974,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4bf674e9-383b-46cc-a163-d15fba333901")
-		(property "Reference" "CM"
+		(property "Reference" "CM1"
 			(at 140.335 15.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19033,7 +19033,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "CM")
+					(reference "CM1")
 					(unit 1)
 				)
 			)
@@ -19221,7 +19221,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5454957a-0aea-46b7-85f2-37e608d27a2f")
-		(property "Reference" "3.3V"
+		(property "Reference" "3.3V1"
 			(at 140.335 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19280,7 +19280,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "3.3V")
+					(reference "3.3V1")
 					(unit 1)
 				)
 			)
@@ -20091,7 +20091,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "915ed6ed-483b-4dc7-9165-0d5c6239d01f")
-		(property "Reference" "G"
+		(property "Reference" "G1"
 			(at 177.165 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20150,7 +20150,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "G")
+					(reference "G1")
 					(unit 1)
 				)
 			)
@@ -20434,7 +20434,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba76e9fa-a90e-439d-a9bf-a96cf9d6429a")
-		(property "Reference" "VB"
+		(property "Reference" "VB1"
 			(at 140.335 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20493,7 +20493,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "VB")
+					(reference "VB1")
 					(unit 1)
 				)
 			)
@@ -20817,7 +20817,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cf83b402-db72-4f68-8400-a947d566026b")
-		(property "Reference" "Hall"
+		(property "Reference" "Hall1"
 			(at 140.335 21.59 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20876,7 +20876,7 @@
 		(instances
 			(project "Hyper_Wheel-base"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
-					(reference "Hall")
+					(reference "Hall1")
 					(unit 1)
 				)
 			)

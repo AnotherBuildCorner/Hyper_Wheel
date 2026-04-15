@@ -13,6 +13,8 @@ A programmable HID control interface that replaces discrete key presses with con
 - Designed within JLCPCB DFM constraints (no blind vias, optimized BOM, 0402/0603 preference)
 - Staged bring-up strategy using XIAO validation platform to decouple firmware and hardware risk
 
+![Full PCB](<Images/System%20Overview%20Zone%20Free.png>)
+> > 4-layer mixed-signal PCB with dense MCU fanout, controlled routing, and separated power/RF domains
 ---
 
 ## What This Demonstrates

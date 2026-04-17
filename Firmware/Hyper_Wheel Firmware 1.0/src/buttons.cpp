@@ -1,3 +1,5 @@
+// Primary control for individual buttons and primary map.
+
 #include "buttons.h"
 #include <Arduino.h>
 

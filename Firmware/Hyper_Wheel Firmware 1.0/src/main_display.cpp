@@ -1,3 +1,6 @@
+//-- Primary display screen. handling standard in-use view
+//further menus will be submodules.
+
 #include "main_display.h"
 
 

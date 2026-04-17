@@ -1,3 +1,5 @@
+// Core encoder code, simple interface for reading the AS5600 and converting to a step-based model for the rest of the codebase.
+
 #include "encoder.h"
 
 #include <Wire.h>

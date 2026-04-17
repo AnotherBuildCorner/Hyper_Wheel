@@ -1,4 +1,8 @@
 #include <stdint.h>
+/* ------------- Contains the Universal key ID's used throughout the codebase
+ ------------- These are not necessarily the same as USB HID keycodes, 
+---------------but they should be consistent across the codebase and can be mapped to USB HID keycodes in usb_hid.cpp */
+
 
 enum KeyId : uint16_t {
     KEY_NONE = 0,

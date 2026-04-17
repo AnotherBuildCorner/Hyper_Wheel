@@ -1,3 +1,5 @@
+// USB HID transport layer, final stop for all commands before sending to host
+
 #include "usb_hid.h"
 #include "Adafruit_TinyUSB.h"
 #include <Arduino.h>

@@ -1,5 +1,18 @@
 #include <Arduino.h>
 #include "encoder.h"
+#include "main_display.h"
+static DisplayState gDisplayState{};
+
+static const char gKeyLabels[8][DISPLAY_LABEL_LEN + 1] = {
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7",
+    "K8"
+};
 
 static EncoderBindings gEncoderBindings = {
     { KEY_RIGHT,  MOD_SHIFT },   // CW
@@ -16,6 +29,18 @@ void setup() {
     } else {
         Serial.println("Encoder init FAILED");
     }
+        if (!displayBegin()) {
+        Serial.println("Display init failed");
+        while (1) {
+            delay(100);
+        }
+    }
+
+    displaySetProfileName(gDisplayState, "PROF1");
+    displaySetLastCommand(gDisplayState, "READY");
+    displayFillFromKeyLabels(gDisplayState, gKeyLabels);
+
+    displayRender(gDisplayState);
 }
 
 void loop() {

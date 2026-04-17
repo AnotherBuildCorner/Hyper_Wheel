@@ -745,7 +745,7 @@
         "uuid": "3f05eeb1-03f9-49d1-8a58-0bc3d5427d25"
       }
     ],
-    "used_designators": "J1,J3,3.3V1,Switch1,TP1-4,Hall1-2,Cell+1,Cell\\-1,C+1,SCL1,C\\-1,Cell1,GND1-2,SDA1",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [

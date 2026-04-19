@@ -30,13 +30,18 @@ enum OrientationMode : uint8_t {
     ORIENT_0_DEG = 0,
     ORIENT_180_DEG
 };
-
+// Maps the physical GPIO to the internal logic layer
 LogicalKeySlot physicalToLogical(PhysicalButtonId button, OrientationMode orientation);
+// returns the GPIO pin for a given physical button
 uint8_t buttonToPin(PhysicalButtonId button);
 
+// launches the button subsystem, call once during setup
 void buttonsBegin();
+// call periodically from loop to update button states and events
 void buttonsUpdate();
 
+// Query functions for button states and events. These will be cleared on the next buttonsUpdate() call.
 bool wasButtonPressed(PhysicalButtonId id);
 bool wasButtonReleased(PhysicalButtonId id);
 bool isButtonDown(PhysicalButtonId id);
+void debugPrintButtonPresses(OrientationMode orientation);

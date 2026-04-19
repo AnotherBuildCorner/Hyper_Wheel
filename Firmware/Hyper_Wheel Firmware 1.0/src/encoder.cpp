@@ -45,6 +45,9 @@ static inline int16_t wrapDiff(uint16_t now, uint16_t prev) {
 // -----------------------------------------------------------------------------
 // Public API
 // -----------------------------------------------------------------------------
+
+//-- Call encoder once, established connection and set initial state.
+
 bool encoderBegin() {
     Wire.begin();
     gLastMotionMs = millis();
@@ -61,7 +64,8 @@ bool encoderBegin() {
 
     return true;
 }
-
+// Update encoder state, call periodically from loop. This will read the current angle, compare to the last angle, and if it exceeds thresholds, update the pending event and step count for the rest of the system to consume.
+// dead band in steps is probably nonsense, May switch to a single raw count instead. So it's not tied to sensitivity.
 void encoderUpdate() {
     uint32_t now = millis();
 
@@ -102,9 +106,6 @@ void encoderUpdate() {
     }
 }
 
-/*bool encoderHasEvent() {
-    return (gPendingEvent != ENC_EVENT_NONE);
-}*/
 
 bool encoderHasSteps() {
     return (gPendingSteps != 0);
@@ -115,6 +116,10 @@ int8_t getPendingEncoderSteps() {
     gPendingSteps = 0;
     return steps;
 }
+
+/*bool encoderHasEvent() {
+    return (gPendingEvent != ENC_EVENT_NONE);
+}*/
 
 /*EncoderEventType getEncoderEvent() {
     EncoderEventType event = gPendingEvent;

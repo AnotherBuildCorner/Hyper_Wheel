@@ -1,3 +1,4 @@
+#pragma once
 #include <stdint.h>
 /* ------------- Contains the Universal key ID's used throughout the codebase
  ------------- These are not necessarily the same as USB HID keycodes, 

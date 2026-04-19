@@ -16,6 +16,7 @@ static constexpr int OLED_RESET = -1;
 static constexpr uint8_t OLED_ADDR_A = 0x3D;
 static constexpr uint8_t OLED_ADDR_B = 0x3C;
 
+
 static Adafruit_SSD1306 displayA(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 static Adafruit_SSD1306 displayB(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 

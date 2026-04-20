@@ -3,7 +3,7 @@
 #include "action_layer.h"
 #include <Arduino.h>
 #include "encoder.h"
-#include "usb_hid.h"
+#include "interface.h"
 
 // =========================
 // ROLE: Application/action layer
@@ -202,19 +202,33 @@ void handleNormalMode(ActionLayerState& state) {
         const KeyAction& action =
             state.config->profiles[state.config->activeProfile].keys[logical];
 
-        usbHidSendKeypress(static_cast<KeyId>(action.KeyID), action.modifiers);
+        interfaceSendKeypress(action.KeyID, action.modifiers);
     }
 
     // Encoder handling: keep simple for now
+// Encoder handling: profile-driven for encoder 0
     if (encoderHasSteps()) {
         int8_t steps = getPendingEncoderSteps();
-        Serial.print("Encoder Moved");
 
-        for (int8_t i = 0; i < steps; i++) {
-            usbHidSendKeypress(KEY_RIGHT, MOD_SHIFT);
-        }
-        for (int8_t i = 0; i < -steps; i++) {
-            usbHidSendKeypress(KEY_LEFT, MOD_SHIFT);
+        if (state.config != nullptr &&
+            state.config->activeProfile < state.config->profileCount) {
+
+            const EncoderBinding& enc =
+                state.config->profiles[state.config->activeProfile].encoders[0];
+
+            bool invert = enc.invertDirection;
+
+            while (steps > 0) {
+                const KeyAction& action = invert ? enc.counterClockwise : enc.clockwise;
+                interfaceSendKeypress(action.KeyID, action.modifiers);
+                steps--;
+            }
+
+            while (steps < 0) {
+                const KeyAction& action = invert ? enc.clockwise : enc.counterClockwise;
+                interfaceSendKeypress(action.KeyID, action.modifiers);
+                steps++;
+            }
         }
     }
 }

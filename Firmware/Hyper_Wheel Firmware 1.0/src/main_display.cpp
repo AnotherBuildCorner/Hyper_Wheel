@@ -63,28 +63,50 @@ static void drawQuadrants(Adafruit_SSD1306& d,
                           const char* centerText) {
     d.clearDisplay();
     d.setTextSize(1);
-    d.setTextColor(SSD1306_WHITE);
-
-    d.setCursor(0, 0);
-    d.print(labels[0]);
-
-    d.setCursor(74, 0);
-    d.print(labels[1]);
-
-    d.setCursor(0, 54);
-    d.print(labels[2]);
-
-    d.setCursor(74, 54);
-    d.print(labels[3]);
-
     int16_t x1, y1;
     uint16_t w, h;
+    uint16_t cx, cy, label;
+    cx = 0;
+    cy = 0;
+    label = 0;
+    d.setTextColor(SSD1306_WHITE);
+    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
+    d.setCursor(cx, cy);
+    d.print(labels[label]);
+
+    cx = 74;
+    cy = 0;
+    label  += 1;
+    d.setTextColor(SSD1306_WHITE);
+    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
+    d.setCursor(cx, cy);
+    d.print(labels[label]);
+
+    cx = 0;
+    cy = 54;
+    label  += 1;
+    d.setTextColor(SSD1306_WHITE);
+    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
+    d.setCursor(cx, cy);
+    d.print(labels[label]);
+
+    cx = 74;
+    cy = 54;
+    label  += 1;
+    d.setTextColor(SSD1306_WHITE);
+    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
+    d.setCursor(cx, cy);
+    d.print(labels[label]);
+
+
+    d.setTextSize(2);
     d.getTextBounds(centerText, 0, 0, &x1, &y1, &w, &h);
 
-    int16_t cx = (SCREEN_WIDTH - w) / 2;
-    int16_t cy = (SCREEN_HEIGHT - h) / 2;
+    int16_t c2x = (SCREEN_WIDTH - w) / 2;
+    int16_t c2y = (SCREEN_HEIGHT - h) / 2;
+   
 
-    d.setCursor(cx, cy);
+    d.setCursor(c2x, c2y);
     d.print(centerText);
 
     d.display();

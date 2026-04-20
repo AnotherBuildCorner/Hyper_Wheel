@@ -20,14 +20,6 @@ struct Action {
     uint8_t modifiers;
 };
 
-// -----------------------------------------------------------------------------
-// Encoder event model
-// -----------------------------------------------------------------------------
-enum EncoderEventType : uint8_t {
-    ENC_EVENT_NONE = 0,
-    ENC_EVENT_CW,
-    ENC_EVENT_CCW
-};
 
 struct EncoderKeybind {
     KeyId keyId;
@@ -45,13 +37,13 @@ struct EncoderBindings {
 bool encoderBegin();
 void encoderUpdate();
 
-//bool encoderHasEvent();
 int8_t getPendingEncoderSteps();
 bool encoderHasSteps();
 
-EncoderEventType getEncoderEvent();
 Action getEncoderAction();
 
 long getEncoderCount();
 uint16_t getEncoderAngle();
 int16_t getEncoderDiff();
+
+void encoderSetStepCounts(uint16_t stepCounts);

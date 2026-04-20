@@ -15,7 +15,7 @@ static AS5600 encoder;
 // -----------------------------------------------------------------------------
 static constexpr int COUNTS_PER_REV = 4096;
 static constexpr int DEAD_BAND      = 0;
-static constexpr int STEP_COUNTS    = 12;
+static uint16_t gStepCounts = 12;
 static constexpr int MOTION_THRESHOLD = 0;
 static constexpr uint16_t SETTLE_MS = 40;
 static uint32_t gLastMotionMs = 0;
@@ -87,17 +87,17 @@ void encoderUpdate() {
         return;
     }
 
-    while (abs(gAccum) >= STEP_COUNTS) {
+    while (abs(gAccum) >= gStepCounts) {
         if (gAccum > 0) {
             gEncoderCount++;
-            gAccum -= STEP_COUNTS;
+            gAccum -= gStepCounts;
 
             if (gPendingSteps < 20) {
                 gPendingSteps++;
             }
         } else {
             gEncoderCount--;
-            gAccum += STEP_COUNTS;
+            gAccum += gStepCounts;
 
             if (gPendingSteps > -20) {
                 gPendingSteps--;
@@ -106,6 +106,12 @@ void encoderUpdate() {
     }
 }
 
+void encoderSetStepCounts(uint16_t stepCounts) {
+    if (stepCounts == 0) {
+        stepCounts = 1;
+    }
+    gStepCounts = stepCounts;
+}
 
 bool encoderHasSteps() {
     return (gPendingSteps != 0);
@@ -126,7 +132,7 @@ int8_t getPendingEncoderSteps() {
     gPendingEvent = ENC_EVENT_NONE;
     return event;
 }*/
-
+/*
 Action getEncoderAction() {
     Action action{};
     EncoderEventType event = getEncoderEvent();
@@ -156,7 +162,7 @@ Action getEncoderAction() {
     }
 
     return action;
-}
+}*/
 
 long getEncoderCount() {
     return gEncoderCount;

@@ -2,17 +2,10 @@
 
 #include "buttons.h"
 #include <Arduino.h>
-
+#include "pins_and_constants.h"
 // --- Pinout for XIAO NRF52840 ---
 
-constexpr uint8_t PIN_BTN_1 = 7;   // D7,  P1.12
-constexpr uint8_t PIN_BTN_2 = 8;   // D8,  P1.13
-constexpr uint8_t PIN_BTN_3 = 9;   // D9,  P1.14
-constexpr uint8_t PIN_BTN_4 = 10;  // D10, P1.15
-constexpr uint8_t PIN_BTN_5 = 6;   // D6,  P1.11
-constexpr uint8_t PIN_BTN_6 = 3;   // D3,  P0.29
-constexpr uint8_t PIN_BTN_7 = 2;   // D2,  P0.28
-constexpr uint8_t PIN_BTN_8 = 1;   // D1,  P0.03
+
 
 // --- physical pin constructor
 static constexpr uint8_t kButtonPins[NUM_BUTTONS] = {

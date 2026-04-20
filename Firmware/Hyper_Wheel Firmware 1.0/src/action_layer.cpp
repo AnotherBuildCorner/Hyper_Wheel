@@ -164,6 +164,16 @@ bool handleNormalButtons(ActionLayerState& state) {
 
         LogicalKeySlot logical = physicalToLogical(button, state.orientation);
         const KeyAction& action = state.config->profiles[active].keys[logical];
+
+                Serial.print("[BTN PATH] phys=");
+        Serial.print(phys);
+        Serial.print(" logical=");
+        Serial.print(static_cast<int>(logical));
+        Serial.print(" label=");
+        Serial.print(action.label);
+        Serial.print(" keyid=");
+        Serial.println(action.KeyID);
+
         interfaceSendKeypress(action.KeyID, action.modifiers);
     }
 

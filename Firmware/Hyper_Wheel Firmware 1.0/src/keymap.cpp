@@ -6,8 +6,8 @@
 
 KeymapConfig gDefaultKeymapConfig = {
     1, // version
-    1, // activeProfile
-    2, // profileCount
+    0, // activeProfile
+    3, // profileCount
 
     {
         // Profile 0
@@ -43,16 +43,47 @@ KeymapConfig gDefaultKeymapConfig = {
 
         // Profile 1
         {
-            "ALT",
+            "DAVINC",
             {
-                { KEY_1, 0, "K1 1" },
-                { KEY_2, 0, "K2 2" },
-                { KEY_3, 0, "K3 3" },
-                { KEY_4, 0, "K4 4" },
-                { KEY_5, 0, "K5 5" },
-                { KEY_6, 0, "K6 6" },
-                { KEY_7, 0, "K7 7" },
-                { KEY_8, 0, "K8 8" }
+                { KEY_Z, MOD_CTRL, "UNDO" },
+                { KEY_DELETE, 0, "RipDel" },
+                { KEY_SPACE, 0, "Play" },
+                { KEY_B, 0, "Break" },
+                { KEY_NUMPAD_1, 0, "< Cut" },
+                { KEY_NUMPAD_3, 0, "> Cut" },
+                { KEY_Y, MOD_CTRL|MOD_ALT, "BWD-A" },
+                { KEY_Y, MOD_ALT, "FWD-A" }
+            },
+            {
+                {
+                    { KEY_RIGHT, MOD_SHIFT, "SCROLL" },
+                    { KEY_LEFT,  MOD_SHIFT, "" },
+                    12,
+                    0, 
+                    false
+                },
+                {
+                    { KEY_NONE, 0, "NONE" },
+                    { KEY_NONE, 0, "NONE" },
+                    12,
+                    0,
+                    false
+                }
+            }
+        },
+
+        // Profile 2
+        {
+            "DV2",
+            {
+                { KEY_1, 0, "K1 F1" },
+                { KEY_2, 0, "K2 F2" },
+                { KEY_3, 0, "K3 F3" },
+                { KEY_4, 0, "K4 F4" },
+                { KEY_5, 0, "K5 F5" },
+                { KEY_6, 0, "K6 F6" },
+                { KEY_7, 0, "K7 F7" },
+                { KEY_8, 0, "K8 F8" }
             },
             {
                 {

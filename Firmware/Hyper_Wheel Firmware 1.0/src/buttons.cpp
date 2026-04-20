@@ -22,14 +22,15 @@ static constexpr uint8_t kButtonPins[NUM_BUTTONS] = {
 // --- logical mapping for orientations. Logical keys are the internal representation of the buttons.
 static constexpr LogicalKeySlot kOrientationMap[2][NUM_BUTTONS] = {
     {
+        KEY_TOP_LEFT,
+        KEY_TOP_1,
+        KEY_TOP_2,
+        KEY_TOP_RIGHT,
         KEY_BOTTOM_LEFT,
         KEY_BOTTOM_1,
         KEY_BOTTOM_2,
         KEY_BOTTOM_RIGHT,
-        KEY_TOP_LEFT,
-        KEY_TOP_1,
-        KEY_TOP_2,
-        KEY_TOP_RIGHT
+
 
     },
     {

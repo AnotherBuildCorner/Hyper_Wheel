@@ -13,6 +13,8 @@ static DisplayState gDisplayState{};
 static ActionLayerState gActionState{};
 static DeviceState gDeviceState{};
 
+static bool gDisplayDirty = true;
+
 static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig& config) {
     char labels[8][DISPLAY_LABEL_LEN + 1] = {};
 
@@ -28,33 +30,6 @@ static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig
         state,
         config.profiles[config.activeProfile].encoders[0].clockwise.label
     );
-    displayFillFromKeyLabels(state, labels);
-}
-
-static void fillDisplayForPresetPicker(DisplayState& state) {
-    char labels[8][DISPLAY_LABEL_LEN + 1] = {
-        "PREV",
-        "CURR",
-        "NEXT",
-        "------",
-        "------",
-        "------",
-        "------",
-        "BACK"
-    };
-
-    displaySetProfileName(state, "PICKER");
-    displaySetLastCommand(state, actionLayerGetMenuTitle(gActionState));
-
-    strncpy(labels[0], actionLayerGetMenuItemLabel(gActionState, 0), DISPLAY_LABEL_LEN);
-    labels[0][DISPLAY_LABEL_LEN] = '\0';
-
-    strncpy(labels[1], actionLayerGetMenuItemLabel(gActionState, 1), DISPLAY_LABEL_LEN);
-    labels[1][DISPLAY_LABEL_LEN] = '\0';
-
-    strncpy(labels[2], actionLayerGetMenuItemLabel(gActionState, 2), DISPLAY_LABEL_LEN);
-    labels[2][DISPLAY_LABEL_LEN] = '\0';
-
     displayFillFromKeyLabels(state, labels);
 }
 
@@ -74,7 +49,6 @@ void setup() {
         }
     }
 
-    //copyDefaultKeymapConfig(gDefaultKeymapConfig);
     configStoreLoadDefaultState(gDeviceState);
 
     gDeviceState.activePreset = gDefaultKeymapConfig.activeProfile;
@@ -92,25 +66,34 @@ void setup() {
         ORIENT_0_DEG
     );
 
-    encoderSetStepCounts(
-        gDefaultKeymapConfig.profiles[gDefaultKeymapConfig.activeProfile]
-            .encoders[0]
-            .stepsPerDetent
-    );
-
     fillDisplayFromActiveProfile(gDisplayState, gDefaultKeymapConfig);
-    displayRender(gDisplayState);
+    displayRenderNormal(gDisplayState);
+    gDisplayDirty = false;
 }
 
 void loop() {
-    actionLayerUpdate(gActionState);
+    bool uiChanged = actionLayerUpdate(gActionState);
 
-    if (actionLayerInMenu(gActionState)) {
-        fillDisplayForPresetPicker(gDisplayState);
-    } else {
-        fillDisplayFromActiveProfile(gDisplayState, gDefaultKeymapConfig);
+    if (uiChanged) {
+        gDisplayDirty = true;
     }
 
-    displayRender(gDisplayState);
+    static InputMode lastMode = MODE_NORMAL;
+    if (gActionState.mode != lastMode) {
+        gDisplayDirty = true;
+        lastMode = gActionState.mode;
+    }
+
+    if (gDisplayDirty) {
+        if (actionLayerInMenu(gActionState)) {
+            displayRenderPresetPicker(gActionState);
+        } else {
+            fillDisplayFromActiveProfile(gDisplayState, gDefaultKeymapConfig);
+            displayRenderNormal(gDisplayState);
+        }
+
+        gDisplayDirty = false;
+    }
+
     delay(2);
 }

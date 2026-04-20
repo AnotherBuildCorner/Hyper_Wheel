@@ -21,6 +21,7 @@ struct ActionLayerState {
 
     uint32_t systemButtonPressMs;
     bool systemHoldHandled;
+    bool suppressNextPickerRelease;
 
     KeymapConfig* config;
     DeviceState* deviceState;
@@ -32,7 +33,7 @@ void actionLayerBegin(ActionLayerState& state,
                       OrientationMode orientation);
 
 void actionLayerSetOrientation(ActionLayerState& state, OrientationMode orientation);
-void actionLayerUpdate(ActionLayerState& state);
+bool actionLayerUpdate(ActionLayerState& state);
 
 bool actionLayerInMenu(const ActionLayerState& state);
 const char* actionLayerGetMenuTitle(const ActionLayerState& state);

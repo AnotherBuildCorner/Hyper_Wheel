@@ -1,5 +1,3 @@
-// --- Transport layer. Designed for hanling keypress and encoder events
-// PRimarily linking the keypress and encoder events into the menu and HID systems.
 #include "action_layer.h"
 
 #include <Arduino.h>
@@ -11,6 +9,7 @@
 namespace {
 
 constexpr uint32_t SYSTEM_BUTTON_HOLD_MS = 500;
+constexpr uint16_t PRESET_PICKER_STEPS_PER_ITEM = 16;
 
 uint8_t clampProfileIndex(const KeymapConfig* config, uint8_t index) {
     if (config == nullptr || config->profileCount == 0) {
@@ -24,6 +23,19 @@ uint8_t clampProfileIndex(const KeymapConfig* config, uint8_t index) {
     return index;
 }
 
+void applyProfileEncoderFeel(ActionLayerState& state) {
+    if (state.config == nullptr || state.config->profileCount == 0) {
+        return;
+    }
+
+    uint8_t active = clampProfileIndex(state.config, state.config->activeProfile);
+    encoderSetStepCounts(state.config->profiles[active].encoders[0].stepsPerDetent);
+}
+
+void applyPresetPickerEncoderFeel() {
+    encoderSetStepCounts(PRESET_PICKER_STEPS_PER_ITEM);
+}
+
 void applyActivePreset(ActionLayerState& state, uint8_t newPreset) {
     if (state.config == nullptr || state.deviceState == nullptr) {
         return;
@@ -34,7 +46,6 @@ void applyActivePreset(ActionLayerState& state, uint8_t newPreset) {
     }
 
     newPreset = clampProfileIndex(state.config, newPreset);
-
     uint8_t current = clampProfileIndex(state.config, state.config->activeProfile);
 
     if (newPreset != current) {
@@ -44,9 +55,7 @@ void applyActivePreset(ActionLayerState& state, uint8_t newPreset) {
     state.deviceState->activePreset = newPreset;
     state.config->activeProfile = newPreset;
 
-    encoderSetStepCounts(
-        state.config->profiles[newPreset].encoders[0].stepsPerDetent
-    );
+    applyProfileEncoderFeel(state);
 
     Serial.print("[PRESET] active=");
     Serial.print(newPreset);
@@ -74,14 +83,15 @@ void togglePreviousPreset(ActionLayerState& state) {
 }
 
 void enterPresetPicker(ActionLayerState& state) {
-    if (state.config == nullptr) {
+    if (state.config == nullptr || state.config->profileCount == 0) {
         return;
     }
 
     state.mode = MODE_PRESET_PICKER;
     state.highlightedPreset = clampProfileIndex(state.config, state.config->activeProfile);
+    applyPresetPickerEncoderFeel();
 
-    Serial.print("[PRESET] picker open, highlight=");
+    Serial.print("[PICKER] open highlight=");
     Serial.println(state.highlightedPreset);
 }
 
@@ -89,10 +99,14 @@ void exitToNormal(ActionLayerState& state) {
     state.mode = MODE_NORMAL;
     state.systemHoldHandled = false;
     state.systemButtonPressMs = 0;
-    Serial.println("[PRESET] picker exit");
+    applyProfileEncoderFeel(state);
+
+    Serial.println("[PICKER] exit");
 }
 
-void updateSystemButtonModeTransitions(ActionLayerState& state) {
+bool updateSystemButtonModeTransitions(ActionLayerState& state) {
+    bool uiChanged = false;
+
     if (wasSystemButtonPressed()) {
         state.systemButtonPressMs = millis();
         state.systemHoldHandled = false;
@@ -105,7 +119,9 @@ void updateSystemButtonModeTransitions(ActionLayerState& state) {
         uint32_t heldMs = millis() - state.systemButtonPressMs;
         if (heldMs >= SYSTEM_BUTTON_HOLD_MS) {
             state.systemHoldHandled = true;
+            state.suppressNextPickerRelease = true;
             enterPresetPicker(state);
+            uiChanged = true;
         }
     }
 
@@ -113,20 +129,28 @@ void updateSystemButtonModeTransitions(ActionLayerState& state) {
         if (state.mode == MODE_NORMAL) {
             if (!state.systemHoldHandled) {
                 togglePreviousPreset(state);
+                uiChanged = true;
             }
         } else if (state.mode == MODE_PRESET_PICKER) {
-            applyActivePreset(state, state.highlightedPreset);
-            exitToNormal(state);
+            if (state.suppressNextPickerRelease) {
+                state.suppressNextPickerRelease = false;
+            } else {
+                applyActivePreset(state, state.highlightedPreset);
+                exitToNormal(state);
+                uiChanged = true;
+            }
         }
 
         state.systemHoldHandled = false;
         state.systemButtonPressMs = 0;
     }
+
+    return uiChanged;
 }
 
-void handleNormalButtons(ActionLayerState& state) {
+bool handleNormalButtons(ActionLayerState& state) {
     if (state.config == nullptr || state.config->profileCount == 0) {
-        return;
+        return false;
     }
 
     uint8_t active = clampProfileIndex(state.config, state.config->activeProfile);
@@ -139,20 +163,21 @@ void handleNormalButtons(ActionLayerState& state) {
         }
 
         LogicalKeySlot logical = physicalToLogical(button, state.orientation);
-
         const KeyAction& action = state.config->profiles[active].keys[logical];
         interfaceSendKeypress(action.KeyID, action.modifiers);
     }
+
+    return false;
 }
 
-void handleNormalEncoder(ActionLayerState& state) {
+bool handleNormalEncoder(ActionLayerState& state) {
     if (!encoderHasSteps()) {
-        return;
+        return false;
     }
 
     if (state.config == nullptr || state.config->profileCount == 0) {
         (void)getPendingEncoderSteps();
-        return;
+        return false;
     }
 
     int8_t steps = getPendingEncoderSteps();
@@ -172,23 +197,30 @@ void handleNormalEncoder(ActionLayerState& state) {
         interfaceSendKeypress(action.KeyID, action.modifiers);
         steps++;
     }
+
+    return false;
 }
 
-void handleNormalMode(ActionLayerState& state) {
-    handleNormalButtons(state);
-    handleNormalEncoder(state);
+bool handleNormalMode(ActionLayerState& state) {
+    bool uiChanged = false;
+    uiChanged |= handleNormalButtons(state);
+    uiChanged |= handleNormalEncoder(state);
+    return uiChanged;
 }
 
-void handlePresetPickerMode(ActionLayerState& state) {
+bool handlePresetPickerMode(ActionLayerState& state) {
     if (state.config == nullptr || state.config->profileCount == 0) {
-        return;
+        return false;
     }
+
+    bool uiChanged = false;
 
     if (encoderHasSteps()) {
         int8_t steps = getPendingEncoderSteps();
+        uint8_t before = state.highlightedPreset;
 
         while (steps > 0) {
-            if (state.highlightedPreset + 1 < state.config->profileCount) {
+            if ((state.highlightedPreset + 1) < state.config->profileCount) {
                 state.highlightedPreset++;
             }
             steps--;
@@ -200,23 +232,15 @@ void handlePresetPickerMode(ActionLayerState& state) {
             }
             steps++;
         }
-    }
 
-    // Optional temporary back key while testing
-    for (uint8_t phys = 0; phys < NUM_BUTTONS; phys++) {
-        PhysicalButtonId button = static_cast<PhysicalButtonId>(phys);
-
-        if (!wasButtonPressed(button)) {
-            continue;
-        }
-
-        LogicalKeySlot logical = physicalToLogical(button, state.orientation);
-
-        if (logical == KEY_TOP_1) {
-            exitToNormal(state);
-            return;
+        if (state.highlightedPreset != before) {
+            Serial.print("[PICKER] highlight=");
+            Serial.println(state.highlightedPreset);
+            uiChanged = true;
         }
     }
+
+    return uiChanged;
 }
 
 const char* getProfileNameSafe(const KeymapConfig* config, uint8_t index) {
@@ -244,27 +268,30 @@ void actionLayerBegin(ActionLayerState& state,
     state.systemHoldHandled = false;
     state.config = &config;
     state.deviceState = &deviceState;
+    state.suppressNextPickerRelease = false;
 
     state.deviceState->activePreset = clampProfileIndex(&config, config.activeProfile);
     state.deviceState->previousPreset = clampProfileIndex(&config, deviceState.previousPreset);
+
+    applyProfileEncoderFeel(state);
 }
 
 void actionLayerSetOrientation(ActionLayerState& state, OrientationMode orientation) {
     state.orientation = orientation;
 }
 
-void actionLayerUpdate(ActionLayerState& state) {
+bool actionLayerUpdate(ActionLayerState& state) {
+    bool uiChanged = false;
 
     buttonsUpdate();
     systemButtonUpdate();
-    debugPrintButtonPresses(state.orientation);
     encoderUpdate();
 
-    updateSystemButtonModeTransitions(state);
+    uiChanged |= updateSystemButtonModeTransitions(state);
 
     switch (state.mode) {
         case MODE_PRESET_PICKER:
-            handlePresetPickerMode(state);
+            uiChanged |= handlePresetPickerMode(state);
             break;
 
         case MODE_PRESET_EDIT:
@@ -273,9 +300,11 @@ void actionLayerUpdate(ActionLayerState& state) {
 
         case MODE_NORMAL:
         default:
-            handleNormalMode(state);
+            uiChanged |= handleNormalMode(state);
             break;
     }
+
+    return uiChanged;
 }
 
 bool actionLayerInMenu(const ActionLayerState& state) {
@@ -285,7 +314,7 @@ bool actionLayerInMenu(const ActionLayerState& state) {
 const char* actionLayerGetMenuTitle(const ActionLayerState& state) {
     switch (state.mode) {
         case MODE_PRESET_PICKER:
-            return "PICKER";
+            return "PRESETS";
 
         case MODE_PRESET_EDIT:
             return "EDIT";
@@ -301,13 +330,16 @@ const char* actionLayerGetMenuItemLabel(const ActionLayerState& state, uint8_t i
         return "------";
     }
 
-    if (index >= 4) {
+    if (index >= 3) {
         return "------";
     }
 
     uint8_t item = state.highlightedPreset;
 
-    if (index == 0 && item > 0) {
+    if (index == 0) {
+        if (item == 0) {
+            return "------";
+        }
         return getProfileNameSafe(state.config, item - 1);
     }
 
@@ -315,7 +347,10 @@ const char* actionLayerGetMenuItemLabel(const ActionLayerState& state, uint8_t i
         return getProfileNameSafe(state.config, item);
     }
 
-    if (index == 2 && (item + 1) < state.config->profileCount) {
+    if (index == 2) {
+        if ((item + 1) >= state.config->profileCount) {
+            return "------";
+        }
         return getProfileNameSafe(state.config, item + 1);
     }
 

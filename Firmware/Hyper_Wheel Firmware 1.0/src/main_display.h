@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 
+struct ActionLayerState;
+
 constexpr uint8_t DISPLAY_LABEL_LEN = 6;
 
 struct DisplayState {
@@ -13,7 +15,9 @@ struct DisplayState {
 };
 
 bool displayBegin();
-void displayRender(const DisplayState& state);
+
+void displayRenderNormal(const DisplayState& state);
+void displayRenderPresetPicker(const ActionLayerState& actionState);
 
 void displaySetProfileName(DisplayState& state, const char* text);
 void displaySetLastCommand(DisplayState& state, const char* text);

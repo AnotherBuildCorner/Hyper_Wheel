@@ -1,8 +1,6 @@
-//-- Primary display screen. handling standard in-use view
-//further menus will be submodules.
-
 #include "main_display.h"
 
+#include "action_layer.h"
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -16,12 +14,15 @@ static constexpr int OLED_RESET = -1;
 static constexpr uint8_t OLED_ADDR_A = 0x3D;
 static constexpr uint8_t OLED_ADDR_B = 0x3C;
 
-
 static Adafruit_SSD1306 displayA(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 static Adafruit_SSD1306 displayB(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-static DisplayState gLastRenderedState{};
-static bool gHasRenderedOnce = false;
+static DisplayState gLastRenderedNormalState{};
+static bool gHasRenderedNormalOnce = false;
+
+static uint8_t gLastRenderedMenuMode = 255;
+static uint8_t gLastRenderedHighlight = 255;
+static bool gHasRenderedMenuOnce = false;
 
 static bool displayStateEquals(const DisplayState& a, const DisplayState& b) {
     return memcmp(&a, &b, sizeof(DisplayState)) == 0;
@@ -42,79 +43,114 @@ void displaySetLastCommand(DisplayState& state, const char* text) {
 
 void displayFillFromKeyLabels(DisplayState& state,
                               const char keyLabels[8][DISPLAY_LABEL_LEN + 1]) {
-    // Canonical keyLabels indexing:
-    // keyLabels[0] = Key1
-    // keyLabels[1] = Key2
-    // keyLabels[2] = Key3
-    // keyLabels[3] = Key4
-    // keyLabels[4] = Key5
-    // keyLabels[5] = Key6
-    // keyLabels[6] = Key7
-    // keyLabels[7] = Key8
+    copyLabel(state.screenA[0], keyLabels[4]); // Key5
+    copyLabel(state.screenA[1], keyLabels[5]); // Key6
+    copyLabel(state.screenA[2], keyLabels[0]); // Key1
+    copyLabel(state.screenA[3], keyLabels[1]); // Key2
 
-    // Screen A = 5, 6, 1, 2
-    copyLabel(state.screenA[0], keyLabels[4]); // Key5 top-left
-    copyLabel(state.screenA[1], keyLabels[5]); // Key6 top-right
-    copyLabel(state.screenA[2], keyLabels[0]); // Key1 bottom-left
-    copyLabel(state.screenA[3], keyLabels[1]); // Key2 bottom-right
-
-    // Screen B = 7, 8, 3, 4
-    copyLabel(state.screenB[0], keyLabels[6]); // Key7 top-left
-    copyLabel(state.screenB[1], keyLabels[7]); // Key8 top-right
-    copyLabel(state.screenB[2], keyLabels[2]); // Key3 bottom-left
-    copyLabel(state.screenB[3], keyLabels[3]); // Key4 bottom-right
+    copyLabel(state.screenB[0], keyLabels[6]); // Key7
+    copyLabel(state.screenB[1], keyLabels[7]); // Key8
+    copyLabel(state.screenB[2], keyLabels[2]); // Key3
+    copyLabel(state.screenB[3], keyLabels[3]); // Key4
 }
 
 static void drawQuadrants(Adafruit_SSD1306& d,
                           const char labels[4][DISPLAY_LABEL_LEN + 1],
                           const char* centerText) {
     d.clearDisplay();
+    d.setTextColor(SSD1306_WHITE);
+
     d.setTextSize(1);
-    int16_t x1, y1;
-    uint16_t w, h;
-    uint16_t cx, cy, label;
-    cx = 0;
-    cy = 0;
-    label = 0;
-    d.setTextColor(SSD1306_WHITE);
-    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
-    d.setCursor(cx, cy);
-    d.print(labels[label]);
+    d.setCursor(0, 0);
+    d.print(labels[0]);
 
-    cx = 74;
-    cy = 0;
-    label  += 1;
-    d.setTextColor(SSD1306_WHITE);
-    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
-    d.setCursor(cx, cy);
-    d.print(labels[label]);
+    d.setCursor(74, 0);
+    d.print(labels[1]);
 
-    cx = 0;
-    cy = 54;
-    label  += 1;
-    d.setTextColor(SSD1306_WHITE);
-    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
-    d.setCursor(cx, cy);
-    d.print(labels[label]);
+    d.setCursor(0, 54);
+    d.print(labels[2]);
 
-    cx = 74;
-    cy = 54;
-    label  += 1;
-    d.setTextColor(SSD1306_WHITE);
-    d.getTextBounds(labels[label], cx, cy, &x1, &y1, &w, &h);
-    d.setCursor(cx, cy);
-    d.print(labels[label]);
-
+    d.setCursor(74, 54);
+    d.print(labels[3]);
 
     d.setTextSize(2);
+
+    int16_t x1, y1;
+    uint16_t w, h;
     d.getTextBounds(centerText, 0, 0, &x1, &y1, &w, &h);
 
-    int16_t c2x = (SCREEN_WIDTH - w) / 2;
-    int16_t c2y = (SCREEN_HEIGHT - h) / 2;
-   
+    int16_t cx = (SCREEN_WIDTH - w) / 2;
+    int16_t cy = (SCREEN_HEIGHT - h) / 2;
 
-    d.setCursor(c2x, c2y);
+    d.setCursor(cx, cy);
     d.print(centerText);
+
+    d.display();
+}
+
+static void drawPresetPickerScreenA(Adafruit_SSD1306& d,
+                                    uint8_t highlightedPreset,
+                                    uint8_t profileCount) {
+    d.clearDisplay();
+    d.setTextColor(SSD1306_WHITE);
+
+    d.setTextSize(2);
+    d.setCursor(0, 0);
+    d.print("PRESET");
+
+    d.setTextSize(1);
+    d.setCursor(0, 24);
+    d.print("Turn: Browse");
+
+    d.setCursor(0, 36);
+    d.print("Sys: Select");
+
+    d.setCursor(0, 54);
+    d.print(highlightedPreset + 1);
+    d.print("/");
+    d.print(profileCount);
+
+    d.display();
+}
+
+static void drawPresetPickerScreenB(Adafruit_SSD1306& d,
+                                    const ActionLayerState& actionState) {
+    d.clearDisplay();
+    d.setTextColor(SSD1306_WHITE);
+    d.setTextSize(1);
+
+    const char* prev = actionLayerGetMenuItemLabel(actionState, 0);
+    const char* curr = actionLayerGetMenuItemLabel(actionState, 1);
+    const char* next = actionLayerGetMenuItemLabel(actionState, 2);
+
+    uint8_t item = actionState.highlightedPreset;
+
+    d.setCursor(0, 8);
+    d.print(" ");
+    if (item > 0) {
+        d.print(item);
+        d.print(": ");
+    } else {
+        d.print("   ");
+    }
+    d.print(prev);
+
+    d.drawRect(0, 24, SCREEN_WIDTH, 16, SSD1306_WHITE);
+    d.setCursor(2, 28);
+    d.print(">");
+    d.print(item + 1);
+    d.print(": ");
+    d.print(curr);
+
+    d.setCursor(0, 48);
+    d.print(" ");
+    if ((item + 1) < actionState.config->profileCount) {
+        d.print(item + 2);
+        d.print(": ");
+    } else {
+        d.print("   ");
+    }
+    d.print(next);
 
     d.display();
 }
@@ -139,14 +175,35 @@ bool displayBegin() {
     return true;
 }
 
-void displayRender(const DisplayState& state) {
-    if (gHasRenderedOnce && displayStateEquals(state, gLastRenderedState)) {
-        return;
-    }
+void displayRenderNormal(const DisplayState& state) {
+    if (gHasRenderedNormalOnce && displayStateEquals(state, gLastRenderedNormalState)) {return;}
 
     drawQuadrants(displayA, state.screenA, state.profileName);
     drawQuadrants(displayB, state.screenB, state.lastCommand);
 
-    memcpy(&gLastRenderedState, &state, sizeof(DisplayState));
-    gHasRenderedOnce = true;
+    memcpy(&gLastRenderedNormalState, &state, sizeof(DisplayState));
+    gHasRenderedNormalOnce = true;
+    gHasRenderedMenuOnce = false;
+}
+
+void displayRenderPresetPicker(const ActionLayerState& actionState) {
+    if (actionState.config == nullptr || actionState.config->profileCount == 0) {
+        return;
+    }
+
+    if (gHasRenderedMenuOnce &&
+        gLastRenderedMenuMode == static_cast<uint8_t>(actionState.mode) &&
+        gLastRenderedHighlight == actionState.highlightedPreset) {
+        return;
+    }
+
+    drawPresetPickerScreenA(displayA,
+                            actionState.highlightedPreset,
+                            actionState.config->profileCount);
+
+    drawPresetPickerScreenB(displayB, actionState);
+
+    gLastRenderedMenuMode = static_cast<uint8_t>(actionState.mode);
+    gLastRenderedHighlight = actionState.highlightedPreset;
+    gHasRenderedMenuOnce = true;
 }

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <string.h>
 
 #include "buttons.h"
 #include "encoder.h"
@@ -6,9 +7,11 @@
 #include "action_layer.h"
 #include "keymap.h"
 #include "interface.h"
+#include "config_store.h"
 
 static DisplayState gDisplayState{};
 static ActionLayerState gActionState{};
+static DeviceState gDeviceState{};
 
 static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig& config) {
     char labels[8][DISPLAY_LABEL_LEN + 1] = {};
@@ -22,26 +25,36 @@ static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig
 
     displaySetProfileName(state, profile.name);
     displaySetLastCommand(
-    state,
-    config.profiles[config.activeProfile].encoders[0].clockwise.label
-);
+        state,
+        config.profiles[config.activeProfile].encoders[0].clockwise.label
+    );
     displayFillFromKeyLabels(state, labels);
 }
 
-static void fillDisplayForMenu(DisplayState& state) {
+static void fillDisplayForPresetPicker(DisplayState& state) {
     char labels[8][DISPLAY_LABEL_LEN + 1] = {
-        "SEL",
-        "BACK",
+        "PREV",
+        "CURR",
+        "NEXT",
         "------",
         "------",
         "------",
         "------",
-        "------",
-        "------"
+        "BACK"
     };
 
-    displaySetProfileName(state, "MENU");
+    displaySetProfileName(state, "PICKER");
     displaySetLastCommand(state, actionLayerGetMenuTitle(gActionState));
+
+    strncpy(labels[0], actionLayerGetMenuItemLabel(gActionState, 0), DISPLAY_LABEL_LEN);
+    labels[0][DISPLAY_LABEL_LEN] = '\0';
+
+    strncpy(labels[1], actionLayerGetMenuItemLabel(gActionState, 1), DISPLAY_LABEL_LEN);
+    labels[1][DISPLAY_LABEL_LEN] = '\0';
+
+    strncpy(labels[2], actionLayerGetMenuItemLabel(gActionState, 2), DISPLAY_LABEL_LEN);
+    labels[2][DISPLAY_LABEL_LEN] = '\0';
+
     displayFillFromKeyLabels(state, labels);
 }
 
@@ -51,6 +64,7 @@ void setup() {
 
     interfaceBegin();
     buttonsBegin();
+    systemButtonBegin();
     encoderBegin();
 
     if (!displayBegin()) {
@@ -60,34 +74,43 @@ void setup() {
         }
     }
 
-    actionLayerBegin(gActionState, gTestKeymapConfig, ORIENT_0_DEG);
+    //copyDefaultKeymapConfig(gDefaultKeymapConfig);
+    configStoreLoadDefaultState(gDeviceState);
+
+    gDeviceState.activePreset = gDefaultKeymapConfig.activeProfile;
+    if (gDefaultKeymapConfig.profileCount > 1) {
+        gDeviceState.previousPreset =
+            (gDefaultKeymapConfig.activeProfile == 0) ? 1 : 0;
+    } else {
+        gDeviceState.previousPreset = gDefaultKeymapConfig.activeProfile;
+    }
+
+    actionLayerBegin(
+        gActionState,
+        gDefaultKeymapConfig,
+        gDeviceState,
+        ORIENT_0_DEG
+    );
 
     encoderSetStepCounts(
-        gTestKeymapConfig.profiles[gTestKeymapConfig.activeProfile]
+        gDefaultKeymapConfig.profiles[gDefaultKeymapConfig.activeProfile]
             .encoders[0]
             .stepsPerDetent
     );
 
-    fillDisplayFromActiveProfile(gDisplayState, gTestKeymapConfig);
+    fillDisplayFromActiveProfile(gDisplayState, gDefaultKeymapConfig);
     displayRender(gDisplayState);
 }
 
 void loop() {
-    static bool draw = false;
     actionLayerUpdate(gActionState);
 
     if (actionLayerInMenu(gActionState)) {
-        fillDisplayForMenu(gDisplayState);
-        displayRender(gDisplayState);
-        draw = false;
+        fillDisplayForPresetPicker(gDisplayState);
     } else {
-        fillDisplayFromActiveProfile(gDisplayState, gTestKeymapConfig);
+        fillDisplayFromActiveProfile(gDisplayState, gDefaultKeymapConfig);
     }
 
-    if (!draw) {
-        displayRender(gDisplayState);
-        draw = true;
-    }
-
+    displayRender(gDisplayState);
     delay(2);
 }

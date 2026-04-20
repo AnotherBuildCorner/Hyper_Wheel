@@ -36,8 +36,8 @@ struct KeymapConfig {
 };
 
 
-extern KeymapConfig gTestKeymapConfig;
-
-extern const KeymapConfig gDefaultKeymapConfig;
+//extern KeymapConfig gTestKeymapConfig;
+extern KeymapConfig gDefaultKeymapConfig;
+//extern const KeymapConfig gDefaultKeymapConfig;
 
 void copyDefaultKeymapConfig(KeymapConfig& outConfig);

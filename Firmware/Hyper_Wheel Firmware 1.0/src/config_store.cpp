@@ -59,7 +59,12 @@ void configStoreLoadDefaultConfig(KeymapConfig& outConfig) {
 }
 
 void configStoreLoadDefaultState(DeviceState& outState) {
-    copyDefaultDeviceState(outState);
+    memset(&outState, 0, sizeof(DeviceState));
+    outState.version = STATE_VERSION;
+    outState.activePreset = 0;
+    outState.previousPreset = 0;
+    outState.lastHost = 0;
+    outState.crc32 = 0;
 }
 
 // ------------------------------

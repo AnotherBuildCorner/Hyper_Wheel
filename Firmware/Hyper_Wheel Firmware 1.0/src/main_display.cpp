@@ -20,6 +20,13 @@ static constexpr uint8_t OLED_ADDR_B = 0x3C;
 static Adafruit_SSD1306 displayA(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 static Adafruit_SSD1306 displayB(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
+static DisplayState gLastRenderedState{};
+static bool gHasRenderedOnce = false;
+
+static bool displayStateEquals(const DisplayState& a, const DisplayState& b) {
+    return memcmp(&a, &b, sizeof(DisplayState)) == 0;
+}
+
 static void copyLabel(char dest[DISPLAY_LABEL_LEN + 1], const char* src) {
     strncpy(dest, src, DISPLAY_LABEL_LEN);
     dest[DISPLAY_LABEL_LEN] = '\0';
@@ -133,6 +140,13 @@ bool displayBegin() {
 }
 
 void displayRender(const DisplayState& state) {
+    if (gHasRenderedOnce && displayStateEquals(state, gLastRenderedState)) {
+        return;
+    }
+
     drawQuadrants(displayA, state.screenA, state.profileName);
     drawQuadrants(displayB, state.screenB, state.lastCommand);
+
+    memcpy(&gLastRenderedState, &state, sizeof(DisplayState));
+    gHasRenderedOnce = true;
 }

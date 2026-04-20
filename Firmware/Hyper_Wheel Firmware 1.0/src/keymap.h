@@ -35,4 +35,9 @@ struct KeymapConfig {
     uint32_t crc32;
 };
 
+
 extern KeymapConfig gTestKeymapConfig;
+
+extern const KeymapConfig gDefaultKeymapConfig;
+
+void copyDefaultKeymapConfig(KeymapConfig& outConfig);

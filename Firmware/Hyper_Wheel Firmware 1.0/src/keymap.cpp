@@ -1,4 +1,8 @@
 #include "keymap.h"
+#include <string.h>
+
+
+
 
 KeymapConfig gTestKeymapConfig = {
     1, // version
@@ -37,3 +41,7 @@ KeymapConfig gTestKeymapConfig = {
     },
     0 // crc32
 };
+
+void copyDefaultKeymapConfig(KeymapConfig& outConfig) {
+    memcpy(&outConfig, &gDefaultKeymapConfig, sizeof(KeymapConfig));
+}

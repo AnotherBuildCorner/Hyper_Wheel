@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-
+#include "nrf.h"
 constexpr uint8_t NUM_BUTTONS = 8;
 constexpr uint16_t DEBOUNCE_MS = 20;
 
@@ -12,8 +12,9 @@ constexpr uint8_t PIN_BTN_5 = 6;   // D6,  P1.11
 constexpr uint8_t PIN_BTN_6 = 3;   // D3,  P0.29
 constexpr uint8_t PIN_BTN_7 = 2;   // D2,  P0.28
 constexpr uint8_t PIN_BTN_8 = 1;   // D1,  P0.03
-constexpr uint8_t PUSH_BTN_PIN = 0; // NFC2 P0.10 (borrowed Cell Monitor Pin for testing)
 
+//constexpr uint8_t PUSH_BTN_PIN = 0; // NFC2 P0.10 (borrowed Cell Monitor Pin for testing)
+constexpr uint32_t PUSH_BTN_PIN = 31; //PIN_NFC2
 //constexpr uint8_t HALL_SENSOR_PIN = 5; // NFC1 P0.09 // Move these to Power Handling later.
 //constexpr uint8_t CELL_MONITOR_PIN = 0; // D0, P0.02
 

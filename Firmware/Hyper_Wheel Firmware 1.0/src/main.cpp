@@ -8,12 +8,28 @@
 #include "keymap.h"
 #include "interface.h"
 #include "config_store.h"
+#include "nrf.h"
 
 static DisplayState gDisplayState{};
 static ActionLayerState gActionState{};
 static DeviceState gDeviceState{};
 
 static bool gDisplayDirty = true;
+
+void enableNfcPinsAsGpio() {
+    if (NRF_UICR->NFCPINS != 0) {
+        NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
+
+        NRF_UICR->NFCPINS = 0;
+
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
+        NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren;
+        while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
+
+        NVIC_SystemReset();
+    }
+}
 
 static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig& config) {
     char labels[8][DISPLAY_LABEL_LEN + 1] = {};
@@ -34,6 +50,7 @@ static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig
 }
 
 void setup() {
+    enableNfcPinsAsGpio();
     Serial.begin(115200);
     delay(1000);
 
@@ -97,3 +114,5 @@ void loop() {
 
     delay(2);
 }
+
+

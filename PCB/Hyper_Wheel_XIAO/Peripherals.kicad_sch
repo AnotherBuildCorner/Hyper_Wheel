@@ -1975,7 +1975,7 @@
 			(symbol "Oled_128x64_0_1"
 				(rectangle
 					(start -6.35 -2.54)
-					(end 8.89 -7.62)
+					(end 8.89 -11.43)
 					(stroke
 						(width 0)
 						(type default)
@@ -1989,7 +1989,7 @@
 				(pin input line
 					(at -2.54 0 270)
 					(length 2.54)
-					(name "VCC"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2007,7 +2007,359 @@
 				(pin input line
 					(at 0 0 270)
 					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 2.54 0 270)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 5.08 0 270)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Jumper:Jumper_3_Bridged12"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "JP"
+				(at -2.54 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper_3_Bridged12"
+				(at 0 2.794 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Jumper, 3-pole, pins 1+2 closed/bridged"
+				(at 0 -11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Jumper SPDT"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Jumper* TestPoint*3Pads* TestPoint*Bridge*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Jumper_3_Bridged12_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_3_Bridged12_0_1"
+				(arc
+					(start -2.032 0.508)
+					(mid -1.143 0.8155)
+					(end -0.254 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_3_Bridged12_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Oled_128x64_1"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Oled_128x64_1_0_1"
+				(rectangle
+					(start -6.35 -2.54)
+					(end 8.89 -11.43)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Oled_128x64_1_1_1"
+				(pin input line
+					(at -2.54 0 270)
+					(length 2.54)
 					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 0 0 270)
+					(length 2.54)
+					(name "VCC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2198,6 +2550,18 @@
 		(uuid "e081ef48-e26f-4439-a5df-a7d06bda108f")
 	)
 	(junction
+		(at 241.3 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "168acac3-c55c-490b-b5da-0745099ae4d9")
+	)
+	(junction
+		(at 224.79 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1fbdec05-52bb-4b46-845a-6eff703c5d72")
+	)
+	(junction
 		(at 250.19 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2228,12 +2592,6 @@
 		(uuid "89f8f01e-1a43-4463-9071-29d07746c52f")
 	)
 	(junction
-		(at 224.79 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ab9fb2ed-220a-48f8-9e8c-9d44a49a0d80")
-	)
-	(junction
 		(at 232.41 54.61)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2246,10 +2604,16 @@
 		(uuid "b813b3fd-41e8-45b3-b87c-066695354281")
 	)
 	(junction
-		(at 236.22 148.59)
+		(at 234.95 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d0562c21-acfe-4cf8-90cf-f6dce9deb7e1")
+		(uuid "ddcec838-8f16-4204-89eb-eef0881762dd")
+	)
+	(junction
+		(at 251.46 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e72f333a-2f22-4193-b974-3658ac2fc9c2")
 	)
 	(wire
 		(pts
@@ -2260,16 +2624,6 @@
 			(type default)
 		)
 		(uuid "022d35c0-4e76-4d22-8f7e-13debc86112b")
-	)
-	(wire
-		(pts
-			(xy 236.22 148.59) (xy 236.22 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "06515892-6ca3-47db-a01f-d9dc106c5bb5")
 	)
 	(wire
 		(pts
@@ -2300,6 +2654,26 @@
 			(type default)
 		)
 		(uuid "0f10a213-63c6-4f4b-a489-904559cc34d8")
+	)
+	(wire
+		(pts
+			(xy 224.79 148.59) (xy 224.79 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f4a34d0-f91d-4d13-a975-aeae30e8e897")
+	)
+	(wire
+		(pts
+			(xy 234.95 146.05) (xy 234.95 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fa8e62b-3c46-4ae1-8f19-b886c1b03dca")
 	)
 	(wire
 		(pts
@@ -2343,6 +2717,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 166.37) (xy 246.38 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16ae3463-7dbc-4f81-8b22-793159c1cbae")
+	)
+	(wire
+		(pts
 			(xy 250.19 83.82) (xy 261.62 83.82)
 		)
 		(stroke
@@ -2350,6 +2734,16 @@
 			(type default)
 		)
 		(uuid "1d706b9d-2b9e-4555-b5d3-b264bd91701c")
+	)
+	(wire
+		(pts
+			(xy 247.65 166.37) (xy 246.38 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22de15d7-e2d4-47ca-afdf-437053e01e9f")
 	)
 	(wire
 		(pts
@@ -2370,6 +2764,16 @@
 			(type default)
 		)
 		(uuid "292bf7e4-40ea-47e5-a373-a3c95414df5a")
+	)
+	(wire
+		(pts
+			(xy 251.46 158.75) (xy 251.46 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d5b4711-8d8a-4058-8e1c-81382adf5e8a")
 	)
 	(wire
 		(pts
@@ -2603,6 +3007,16 @@
 	)
 	(wire
 		(pts
+			(xy 234.95 146.05) (xy 241.3 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6811858d-4d75-432d-9ffe-71c1dce6ff4b")
+	)
+	(wire
+		(pts
 			(xy 106.68 163.83) (xy 111.76 163.83)
 		)
 		(stroke
@@ -2613,6 +3027,26 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 146.05) (xy 251.46 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a1004db-4237-48d0-b04f-f02bf8040e00")
+	)
+	(wire
+		(pts
+			(xy 229.87 161.29) (xy 229.87 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6e342baf-65a6-48bc-b37f-81c672d155d5")
+	)
+	(wire
+		(pts
 			(xy 43.18 33.02) (xy 43.18 41.91)
 		)
 		(stroke
@@ -2620,16 +3054,6 @@
 			(type default)
 		)
 		(uuid "7090b8c5-942d-4135-bab4-8a3da69220a2")
-	)
-	(wire
-		(pts
-			(xy 224.79 146.05) (xy 251.46 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7a6e4ec4-8545-481f-96c5-455e24ffb096")
 	)
 	(wire
 		(pts
@@ -2813,16 +3237,6 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 146.05) (xy 224.79 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ba2976a6-e8d3-4718-89d7-f418ec3760bd")
-	)
-	(wire
-		(pts
 			(xy 95.25 83.82) (xy 95.25 88.9)
 		)
 		(stroke
@@ -2883,6 +3297,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 158.75) (xy 241.3 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc6b556d-a794-4482-80ca-bc9ea30d7d12")
+	)
+	(wire
+		(pts
 			(xy 205.74 54.61) (xy 218.44 54.61)
 		)
 		(stroke
@@ -2933,16 +3357,6 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 148.59) (xy 236.22 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d835056d-ea9c-49a4-a433-4bfa6dc48773")
-	)
-	(wire
-		(pts
 			(xy 102.87 90.17) (xy 104.14 90.17)
 		)
 		(stroke
@@ -2963,13 +3377,23 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 148.59) (xy 236.22 148.59)
+			(xy 215.9 146.05) (xy 234.95 146.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ecec8ea4-d647-4b1f-98ad-018ae7aa64ad")
+		(uuid "e6a4ecd3-af4e-4853-a67e-f4a42c2f28c7")
+	)
+	(wire
+		(pts
+			(xy 215.9 148.59) (xy 224.79 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eea3cc54-653f-499b-9c72-3b1544334e3a")
 	)
 	(wire
 		(pts
@@ -3030,6 +3454,16 @@
 			(type default)
 		)
 		(uuid "fa9b6742-7076-4e99-80ab-cd33c327ba87")
+	)
+	(wire
+		(pts
+			(xy 224.79 148.59) (xy 251.46 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "facd64dd-a48d-4354-938a-4f7f3ec8e9a2")
 	)
 	(wire
 		(pts
@@ -3339,6 +3773,17 @@
 		)
 		(uuid "22d1adf6-5be9-4eb5-8a85-95f906a316d5")
 	)
+	(hierarchical_label "Load2_Vin"
+		(shape input)
+		(at 247.65 166.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "327042d3-108b-45fa-965e-0e0c53aaa683")
+	)
 	(hierarchical_label "K1"
 		(shape input)
 		(at 223.52 62.23 0)
@@ -3404,17 +3849,6 @@
 			(justify left)
 		)
 		(uuid "b6cf196d-8ca8-4126-9a2f-a54f35f77f23")
-	)
-	(hierarchical_label "Load2_Vin"
-		(shape input)
-		(at 236.22 147.32 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b9a2fc87-9894-4356-98d8-feaa069816bf")
 	)
 	(hierarchical_label "K6"
 		(shape input)
@@ -3552,6 +3986,7 @@
 		)
 	)
 	(symbol
+		(lib_name "Oled_128x64_1")
 		(lib_id "Hyper_Wheel:Oled_128x64")
 		(at 215.9 146.05 270)
 		(mirror x)
@@ -3718,6 +4153,89 @@
 			(project "Hyper_Wheel_XIAO"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/27e14a4a-7907-4947-a1bd-66ab05fca5b6"
 					(reference "U14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_3_Bridged12")
+		(at 229.87 154.94 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "27171e8c-b879-40db-bf07-177e9e4a4ac4")
+		(property "Reference" "JP1"
+			(at 229.87 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_3_Bridged12"
+			(at 229.87 152.4 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels"
+			(at 229.87 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.87 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 3-pole, pins 1+2 closed/bridged"
+			(at 229.87 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "6310f9c8-6a48-4e8e-9d92-281b45e36556")
+		)
+		(pin "1"
+			(uuid "0197e72b-d168-48da-9ba4-cf86eb1ca157")
+		)
+		(pin "2"
+			(uuid "b7814d22-4f47-46b2-9132-e086c0417a6f")
+		)
+		(instances
+			(project "Hyper_Wheel_XIAO"
+				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/27e14a4a-7907-4947-a1bd-66ab05fca5b6"
+					(reference "JP1")
 					(unit 1)
 				)
 			)
@@ -4920,7 +5438,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 224.79 146.05 0)
+		(at 229.87 161.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4931,7 +5449,7 @@
 		(fields_autoplaced yes)
 		(uuid "dfae4193-46f7-46bd-9c76-d1d869b2143e")
 		(property "Reference" "#PWR020"
-			(at 224.79 152.4 0)
+			(at 229.87 167.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4942,7 +5460,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 224.79 151.13 0)
+			(at 229.87 166.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4952,7 +5470,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 146.05 0)
+			(at 229.87 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4963,7 +5481,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 146.05 0)
+			(at 229.87 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4974,7 +5492,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 224.79 146.05 0)
+			(at 229.87 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5341,6 +5859,89 @@
 			(project "Hyper_Wheel_XIAO"
 				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/27e14a4a-7907-4947-a1bd-66ab05fca5b6"
 					(reference "CH4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_3_Bridged12")
+		(at 246.38 158.75 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f3d31035-3f1b-4c08-a58d-711dbcd38e6d")
+		(property "Reference" "JP2"
+			(at 246.38 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_3_Bridged12"
+			(at 246.38 156.21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels"
+			(at 246.38 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 3-pole, pins 1+2 closed/bridged"
+			(at 246.38 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "f6453b12-6129-4c3a-9846-e0ed3378963b")
+		)
+		(pin "1"
+			(uuid "0285855f-74f2-4c72-a00d-35e6ab0a1e3f")
+		)
+		(pin "2"
+			(uuid "5c8c6170-5811-40ea-8887-9efa4c8526b9")
+		)
+		(instances
+			(project "Hyper_Wheel_XIAO"
+				(path "/3f05eeb1-03f9-49d1-8a58-0bc3d5427d25/27e14a4a-7907-4947-a1bd-66ab05fca5b6"
+					(reference "JP2")
 					(unit 1)
 				)
 			)

@@ -6,7 +6,7 @@
 
 KeymapConfig gDefaultKeymapConfig = {
     1, // version
-    0, // activeProfile
+    1, // activeProfile
     3, // profileCount
 
     {

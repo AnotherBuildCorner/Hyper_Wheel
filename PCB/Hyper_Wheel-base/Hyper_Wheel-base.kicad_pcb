@@ -22150,7 +22150,7 @@
 	(footprint "Hyper_Wheel:Goat"
 		(layer "B.Cu")
 		(uuid "27c59c05-6fb2-4d44-b9de-abe97c5cc427")
-		(at 235.402519 61.964966)
+		(at 239.347481 63.535035 180)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "B.SilkS")
@@ -22205,7 +22205,7 @@
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
-				(xy -2.955192 4.530481) (xy -2.967404 4.51827) (xy -2.979615 4.530481) (xy -2.967404 4.542693)
+				(xy 1.440961 4.823558) (xy 1.42875 4.811347) (xy 1.416538 4.823558) (xy 1.42875 4.83577)
 			)
 			(stroke
 				(width 0)
@@ -22213,7 +22213,7 @@
 			)
 			(fill yes)
 			(layer "B.SilkS")
-			(uuid "320b2009-5a56-4b7f-aded-a9c02bb61ac8")
+			(uuid "d489e1e5-8d92-4146-af6b-75a3a94337fe")
 		)
 		(fp_poly
 			(pts
@@ -22229,7 +22229,7 @@
 		)
 		(fp_poly
 			(pts
-				(xy 1.440961 4.823558) (xy 1.42875 4.811347) (xy 1.416538 4.823558) (xy 1.42875 4.83577)
+				(xy -2.955192 4.530481) (xy -2.967404 4.51827) (xy -2.979615 4.530481) (xy -2.967404 4.542693)
 			)
 			(stroke
 				(width 0)
@@ -22237,7 +22237,7 @@
 			)
 			(fill yes)
 			(layer "B.SilkS")
-			(uuid "d489e1e5-8d92-4146-af6b-75a3a94337fe")
+			(uuid "320b2009-5a56-4b7f-aded-a9c02bb61ac8")
 		)
 		(fp_poly
 			(pts
@@ -26014,16 +26014,36 @@
 		)
 		(uuid "f78d2b98-f286-42b0-b7e3-6da04b6ffe86")
 	)
+	(gr_text_box "VCCSW\nGND\nSDL\nSCA\nHall\nVCC"
+		(start 191.90625 55.533397)
+		(end 200.59375 72.466603)
+		(margins 1.0025 1.0025 1.0025 1.0025)
+		(layer "B.SilkS")
+		(uuid "07d41bf5-12e4-41f7-9f5c-f4edc0d5e9ba")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.2)
+			)
+			(justify left top mirror)
+		)
+		(border yes)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(knockout no)
+	)
 	(gr_text_box "Hyper-Wheel\nFull System\nRevA 1\n4/26"
-		(start 216.625 58.572084)
-		(end 228.875 66.927916)
+		(start 208.25 60.572084)
+		(end 225.125 72.278832)
 		(margins 1.0025 1.0025 1.0025 1.0025)
 		(layer "B.SilkS")
 		(uuid "d6f1da31-3af5-45cd-971a-f6daad3cad86")
 		(effects
 			(font
-				(size 1 1)
-				(thickness 0.1)
+				(size 1.5 1.5)
+				(thickness 0.2)
 			)
 			(justify left top mirror)
 		)

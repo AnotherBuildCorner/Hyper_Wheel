@@ -366,6 +366,34 @@ BLE --> HOST
 
 ---
 
+## Hardware Iterations
+
+### Rev A – Firmware Validation Platform
+- XIAO nRF52840-based
+- Reduced feature set to validate input, display, and HID stack
+- 2-layer board for reduced cost/complexity
+
+![alt text](<Images/XIAO board Zone Free RevA (Small).png>) 
+> Rev A Board.
+
+![alt text](<Images/XIAO Rev B (Small).png>)
+> Rev B board, note change in keyswitch footprints and added jumper network
+### Rev B – Connector + Layout Refinement
+- Introduced JST right-angle connectors (2/4/6 pin)
+- Retained 2.54mm headers for bring-up flexibility
+- Implemented rotationally symmetric connector layout
+  - Enables cross-compatibility between 4-pin and 6-pin harnesses
+  - Increased routing complexity but improved wiring consistency
+- Adjusted OLED power routing for improved modularity
+
+![alt text](<Images/Xiao RevB Power Detail (Small).png>)![alt text](<Images/Xiao Rev B JST Connectors (Small).png>)
+> Right shows the reconfigurable jumper array to switch GND and VCC pins to OLED
+
+### Key Takeaways
+- Connector standardization impacts both layout complexity and user error rate
+- Bring-up flexibility is worth temporary redundancy (2.54 + JST)
+- Physical interface decisions cascade into firmware, assembly, and usability
+
 ## Design for Manufacturing (DFM)
 
 This design explicitly considers **PCBA cost and manufacturability**, not just functionality.

@@ -16,7 +16,7 @@ constexpr uint8_t PIN_BTN_8 = 1;   // D1,  P0.03
 //constexpr uint8_t PUSH_BTN_PIN = 0; // NFC2 P0.10 (borrowed Cell Monitor Pin for testing)
 constexpr uint32_t PUSH_BTN_PIN = 31; //PIN_NFC2
 constexpr uint32_t HALL_SENSOR_PIN = 30; // NFC1 P0.09 // Move these to Power Handling later.
-//constexpr uint8_t CELL_MONITOR_PIN = 0; // D0, P0.02
+constexpr uint8_t CELL_MONITOR_PIN = 0; // D0, P0.02
 
 enum PhysicalButtonId : uint8_t {
     PHYS_BTN_1 = 0,

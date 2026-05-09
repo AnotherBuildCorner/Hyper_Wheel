@@ -10,6 +10,8 @@
 #include "config_store.h"
 #include "nrf.h"
 
+#include "diagnostics.h"
+
 static DisplayState gDisplayState{};
 static ActionLayerState gActionState{};
 static DeviceState gDeviceState{};
@@ -49,46 +51,7 @@ static void fillDisplayFromActiveProfile(DisplayState& state, const KeymapConfig
     displayFillFromKeyLabels(state, labels);
 }
 
-void HallTest(){
-    bool x = digitalRead(HALL_SENSOR_PIN);
-    static bool lastx = false;
-    if (x != lastx) {
-        Serial.print("Hall sensor: ");
-        Serial.println(x ? "ON" : "OFF");
-        lastx = x;
-    }
 
-}
-
-#include <Wire.h>
-
-void scanI2COnce() {
-    Wire.begin();
-    delay(3000);
-    Serial.println("I2C scan start");
-
-    uint8_t count = 0;
-
-    for (uint8_t addr = 1; addr < 127; addr++) {
-        Wire.beginTransmission(addr);
-        uint8_t error = Wire.endTransmission();
-
-        if (error == 0) {
-            Serial.print("Found device at 0x");
-            if (addr < 16) Serial.print("0");
-            Serial.println(addr, HEX);
-            count++;
-        } 
-        else if (error == 4) {
-            Serial.print("Unknown error at 0x");
-            if (addr < 16) Serial.print("0");
-            Serial.println(addr, HEX);
-        }
-    }
-
-    Serial.print("I2C scan complete. Devices found: ");
-    Serial.println(count);
-}
 
 void setup() {
     enableNfcPinsAsGpio();
@@ -137,6 +100,7 @@ void setup() {
 void loop() {
     bool uiChanged = actionLayerUpdate(gActionState);
     HallTest();
+    AnalogTest();
 
     if (uiChanged) {
         gDisplayDirty = true;

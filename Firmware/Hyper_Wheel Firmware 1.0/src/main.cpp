@@ -93,8 +93,9 @@ void scanI2COnce() {
 void setup() {
     enableNfcPinsAsGpio();
     Serial.begin(115200);
+
+    //scanI2COnce();
     delay(1000);
-    scanI2COnce();
 
     interfaceBegin();
     buttonsBegin();

@@ -60,8 +60,8 @@ KeymapConfig gDefaultKeymapConfig = {
                     false
                 },
                 {
-                    { KEY_NONE, 0, "NONE" },
-                    { KEY_NONE, 0, "NONE" },
+                    { KEY_RIGHT, 0, "NONE" },
+                    { KEY_LEFT, 0, "NONE" },
                     12,
                     0,
                     false

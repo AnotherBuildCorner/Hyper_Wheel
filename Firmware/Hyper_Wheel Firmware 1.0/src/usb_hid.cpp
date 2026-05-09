@@ -140,6 +140,8 @@ void usbHidReleaseAll() {
 void usbHidSendKeypress(KeyId key, uint8_t modifiers) {
 
     if (!usbHidReady()) return;
+   
+
 
     uint8_t usbCode = toUsbKeycode(key);
     if (usbCode == 0) return;
@@ -147,7 +149,11 @@ void usbHidSendKeypress(KeyId key, uint8_t modifiers) {
     uint8_t keycode[6] = {0, 0, 0, 0, 0, 0};
     keycode[0] = usbCode;
 
-    usb_hid.keyboardReport(RID_KEYBOARD, toUsbModifiers(modifiers), keycode);
+
+    bool ok = usb_hid.keyboardReport(RID_KEYBOARD, toUsbModifiers(modifiers), keycode);
+    if(!ok){    Serial.print("keyboardReport ok = ");
+        Serial.println(ok);}
+
     delay(3);
         // If we took too long to send the keypress, immediately release to avoid sticking
     usbHidReleaseAll();

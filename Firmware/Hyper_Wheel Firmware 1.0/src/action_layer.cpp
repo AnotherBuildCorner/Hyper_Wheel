@@ -10,6 +10,8 @@ namespace {
 
 constexpr uint32_t SYSTEM_BUTTON_HOLD_MS = 500;
 constexpr uint16_t PRESET_PICKER_STEPS_PER_ITEM = 16;
+constexpr EncoderId MAIN_ENCODER = ENCODER_A;
+constexpr uint8_t MAIN_ENCODER_CONFIG_INDEX = 0;
 
 uint8_t clampProfileIndex(const KeymapConfig* config, uint8_t index) {
     if (config == nullptr || config->profileCount == 0) {
@@ -29,11 +31,14 @@ void applyProfileEncoderFeel(ActionLayerState& state) {
     }
 
     uint8_t active = clampProfileIndex(state.config, state.config->activeProfile);
-    encoderSetStepCounts(state.config->profiles[active].encoders[0].stepsPerDetent);
+    encoderSetStepCounts(
+    MAIN_ENCODER,
+    state.config->profiles[active].encoders[MAIN_ENCODER_CONFIG_INDEX].stepsPerDetent
+);
 }
 
 void applyPresetPickerEncoderFeel() {
-    encoderSetStepCounts(PRESET_PICKER_STEPS_PER_ITEM);
+    encoderSetStepCounts(MAIN_ENCODER, PRESET_PICKER_STEPS_PER_ITEM);
 }
 
 void applyActivePreset(ActionLayerState& state, uint8_t newPreset) {
@@ -181,36 +186,41 @@ bool handleNormalButtons(ActionLayerState& state) {
 }
 
 bool handleNormalEncoder(ActionLayerState& state) {
-    if (!encoderHasSteps()) {
+    if (!encoderHasSteps(MAIN_ENCODER)) {
         return false;
     }
+
+    int8_t steps = getPendingEncoderSteps(MAIN_ENCODER);
+
+
 
     if (state.config == nullptr || state.config->profileCount == 0) {
-        (void)getPendingEncoderSteps();
         return false;
     }
 
-    int8_t steps = getPendingEncoderSteps();
     uint8_t active = clampProfileIndex(state.config, state.config->activeProfile);
 
-    const EncoderBinding& enc = state.config->profiles[active].encoders[0];
+    const EncoderBinding& enc =
+        state.config->profiles[active].encoders[MAIN_ENCODER_CONFIG_INDEX];
+
     bool invert = enc.invertDirection;
 
     while (steps > 0) {
         const KeyAction& action = invert ? enc.counterClockwise : enc.clockwise;
         interfaceSendKeypress(action.KeyID, action.modifiers);
         steps--;
+
     }
 
     while (steps < 0) {
         const KeyAction& action = invert ? enc.clockwise : enc.counterClockwise;
         interfaceSendKeypress(action.KeyID, action.modifiers);
         steps++;
+
     }
 
     return false;
 }
-
 bool handleNormalMode(ActionLayerState& state) {
     bool uiChanged = false;
     uiChanged |= handleNormalButtons(state);
@@ -225,8 +235,8 @@ bool handlePresetPickerMode(ActionLayerState& state) {
 
     bool uiChanged = false;
 
-    if (encoderHasSteps()) {
-        int8_t steps = getPendingEncoderSteps();
+    if (encoderHasSteps(MAIN_ENCODER)) {
+        int8_t steps = getPendingEncoderSteps(MAIN_ENCODER);
         uint8_t before = state.highlightedPreset;
 
         while (steps > 0) {

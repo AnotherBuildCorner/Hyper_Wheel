@@ -8,7 +8,11 @@
 // -----------------------------------------------------------------------------
 // I2C / AS5600
 // -----------------------------------------------------------------------------
-static AS5600 encoder;
+static const uint8_t EncoderAADDR = 0x40;
+static const uint8_t EncoderBADDR = 0x36;
+
+static AS5600 encoder(EncoderAADDR);
+static AS5600 encoderB(EncoderBADDR);
 
 // -----------------------------------------------------------------------------
 // Encoder tuning
@@ -16,7 +20,7 @@ static AS5600 encoder;
 static constexpr int COUNTS_PER_REV = 4096;
 static constexpr int DEAD_BAND      = 0;
 static uint16_t gStepCounts = 12;
-static constexpr int MOTION_THRESHOLD = 0;
+static constexpr int MOTION_THRESHOLD = 1;
 static constexpr uint16_t SETTLE_MS = 40;
 static uint32_t gLastMotionMs = 0;
 
@@ -52,8 +56,8 @@ bool encoderBegin() {
     Wire.begin();
     gLastMotionMs = millis();
 
-    encoder.begin();
-    encoder.setDirection(AS5600_CLOCK_WISE);
+    encoderA.begin();
+    encoderA.setDirection(AS5600_CLOCK_WISE);
 
     gLastAngle = encoder.readAngle();
     gLastDiff = 0;
@@ -69,7 +73,7 @@ bool encoderBegin() {
 void encoderUpdate() {
     uint32_t now = millis();
 
-    uint16_t angle = encoder.readAngle();
+    uint16_t angle = encoderA.readAngle();
     int16_t diff = wrapDiff(angle, gLastAngle);
 
     gLastAngle = angle;
@@ -79,6 +83,7 @@ void encoderUpdate() {
     if (abs(diff) >= MOTION_THRESHOLD) {
         gLastMotionMs = now;
         gAccum += diff;
+        Serial.println("Encoder Motion Thresh");
     } else {
         // If we have been still for a little while, flush leftover residue
         if ((now - gLastMotionMs) > SETTLE_MS) {
@@ -123,46 +128,6 @@ int8_t getPendingEncoderSteps() {
     return steps;
 }
 
-/*bool encoderHasEvent() {
-    return (gPendingEvent != ENC_EVENT_NONE);
-}*/
-
-/*EncoderEventType getEncoderEvent() {
-    EncoderEventType event = gPendingEvent;
-    gPendingEvent = ENC_EVENT_NONE;
-    return event;
-}*/
-/*
-Action getEncoderAction() {
-    Action action{};
-    EncoderEventType event = getEncoderEvent();
-
-    switch (event) {
-        case ENC_EVENT_CW:
-            action.type = ACTION_CONSUMER;
-            action.code = 1;   // placeholder for volume up
-            action.value = 1;
-            action.modifiers = 0;
-            break;
-
-        case ENC_EVENT_CCW:
-            action.type = ACTION_CONSUMER;
-            action.code = 2;   // placeholder for volume down
-            action.value = -1;
-            action.modifiers = 0;
-            break;
-
-        case ENC_EVENT_NONE:
-        default:
-            action.type = ACTION_NONE;
-            action.code = 0;
-            action.value = 0;
-            action.modifiers = 0;
-            break;
-    }
-
-    return action;
-}*/
 
 long getEncoderCount() {
     return gEncoderCount;
